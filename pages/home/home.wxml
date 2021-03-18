@@ -9,15 +9,17 @@
         <van-icon name="flower-o" size="24px" />
       </view>
     </van-search>
-  </vant-c      nnjjgjj    ol>
+  </vant-col>
 </vant-row>
 <vant-row>
-  <vant-col span="12">
+  <vant-col span="24">
     <van-tabs sticky>
       <van-tab title="首页">内容 1</van-tab>
-      <van-tab title="热门">内容 3</van-tab>
+      <van-tab title="推荐">推荐</van-tab>
+      <van-tab title="小说"></van-tab>
+      <van-tab title="计算机">内容 4</van-tab>
+      <van-tab title="教材">内容 2</van-tab>
       <van-tab title="计算机">内容 2</van-tab>
-      <van-tab title="文学">内容 4</van-tab>
     </van-tabs>
   </vant-col>
 </vant-row>
