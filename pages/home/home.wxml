@@ -1,28 +1,51 @@
-<vant-row>
-  <vant-col span="24">
+<van-row>
+  <van-col span="24">
     <!-- 搜索框 -->
-    <van-search value="{{ value }}" placeholder="请输入搜索关键词" use-action-slot use-right-icon-slot shape="round">
+    <van-search value="{{ value }}" placeholder="请输入搜索关键词" use-action-slot uq-right-icon-slot shape="round">
       <view slot="action" class="view-center">
         <van-icon name="scan" size="24px" bind:tap="openUploadBookAction" />
       </view>
     </van-search>
-    <van-tabs sticky>
-      <van-tab title="首页">内容 1</van-tab>
-      <van-tab title="推荐">推荐</van-tab>
+    <van-tabs sticky animated ellipsis="{{ false }}">
+      <van-tab title="首页"></van-tab>
+      <van-tab title="推荐"></van-tab>
+      <van-tab title="教材"></van-tab>
       <van-tab title="小说"></van-tab>
-      <van-tab title="计算机">内容 4</van-tab>
-      <van-tab title="教材">内容 2</van-tab>
-      <van-tab title="计算机">内容 2</van-tab>
+      <van-tab title="文学"></van-tab>
+      <van-tab title="传记"></van-tab>
+      <van-tab title="艺术"></van-tab>
+      <van-tab title="计算机"></van-tab>
+      <van-tab title="历史"></van-tab>
+      <van-tab title="法律"></van-tab>
+      <van-tab title="考试"></van-tab>
+      <van-tab title="外语"></van-tab>
+      <van-tab title="畅销"></van-tab>
+      <van-tab title="科普"></van-tab>
+      <van-tab title="医学"></van-tab>
+      <van-tab title="工业技术"></van-tab>
+      <van-tab title="自然科学"></van-tab>
+      <van-tab title="原版书籍"></van-tab>
+      <van-tab title="其他"></van-tab>
     </van-tabs>
-  </vant-col>
-</vant-row>
+  </van-col>
+</van-row>
+<van-row>
+  <van-col span="24">
+    <van-grid column-num="4" border="{{ false }}" icon-size="30px">
+      <van-grid-item icon="/resources/images/heart.png" text="今日推荐" />
+      <van-grid-item icon="/resources/images/course.png" text="最新共享" />
+      <van-grid-item icon="/resources/images/ranking_list.png" text="共享排行榜" />
+      <van-grid-item icon="/resources/images/interest.png" text="借阅排行榜" />
+      <van-grid-item icon="/resources/images/notice.png" text="公告" />
+      <van-grid-item icon="/resources/images/to_do.png" text="待办事宜" />
+      <van-grid-item icon="/resources/images/sign_in.png" text="书评打卡" />
+      <van-grid-item icon="/resources/images/feedback.png" text="反馈" />
+    </van-grid>
+  </van-col>
+</van-row>
+<van-row>
+  
+</van-row>
 <!-- 上传书籍弹出框 -->
-<van-action-sheet
-  show="{{ uploadBookShow }}"
-  actions="{{ uploadBookActionList }}"
-  bind:close="uploadBookActionOnClose"
-  bind:select="uploadBookActionOnSelect"
-  bind:cancel="uploadBookActionOnClose"
-  cancel-text="取消"
-  description="共享书籍"
-/>
+<van-action-sheet show="{{ uploadBookShow }}" actions="{{ uploadBookActionList }}" bind:close="uploadBookActionOnClose"
+  bind:select="uploadBookActionOnSelect" bind:cancel="uploadBookActionOnClose" cancel-text="取消" description="共享书籍" />

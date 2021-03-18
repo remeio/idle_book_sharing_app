@@ -26,6 +26,8 @@
     "van-field": "@vant/weapp/field/index",
     "van-stepper": "@vant/weapp/stepper/index",
     "van-button": "@vant/weapp/button/index",
-    "van-image": "@vant/weapp/image/index"
+    "van-image": "@vant/weapp/image/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index"
   }
 }
