@@ -5,7 +5,8 @@
     "pages/home/home",
     "pages/user/user",
     "pages/community/community",
-    "pages/share/share"
+    "pages/share/share",
+    "pages/upload_book/upload_book"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -17,6 +18,14 @@
   "usingComponents": {
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
-    "van-icon": "@vant/weapp/icon/index"
+    "van-icon": "@vant/weapp/icon/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-image": "@vant/weapp/image/index"
   }
 }

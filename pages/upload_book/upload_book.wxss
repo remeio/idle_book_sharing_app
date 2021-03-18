@@ -1,0 +1,4 @@
+/* pages/upload_book/upload_book.wxss */
+.uploadBookButton {
+  margin-top: 120px;
+}

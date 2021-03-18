@@ -1,9 +1,10 @@
 <!-- 页面容器 -->
-<view>
+<view class="page">
   <home-page wx:if="{{ active == 0 }}"></home-page>
   <share-page wx:if="{{ active == 1 }}"></share-page>
   <community-page wx:if="{{ active == 2 }}"></community-page>
   <user-page wx:if="{{ active == 3 }}"></user-page>
+  <van-toast id="van-toast" />
 </view>
 <van-tabbar active="{{ active }}" bind:change="onChange">
   <van-tabbar-item icon="wap-home-o">首页</van-tabbar-item>
