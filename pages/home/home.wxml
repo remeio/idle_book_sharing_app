@@ -1,0 +1,23 @@
+<vant-row>
+  <vant-col span="24">
+    <!-- 搜索框 -->
+    <van-search value="{{ value }}" placeholder="请输入搜索关键词" use-action-slot use-right-icon-slot>
+      <view slot="right-icon" bind:tap="onClick" class="center">
+        <van-icon name="scan" />
+      </view>
+      <view slot="action" bind:tap="onClick" class="center">
+        <van-icon name="flower-o" size="24px" />
+      </view>
+    </van-search>
+  </vant-col>
+</vant-row>
+<vant-row>
+  <vant-col span="12">
+    <van-tabs sticky>
+      <van-tab title="首页">内容 1</van-tab>
+      <van-tab title="热门">内容 3</van-tab>
+      <van-tab title="计算机">内容 2</van-tab>
+      <van-tab title="文学">内容 4</van-tab>
+    </van-tabs>
+  </vant-col>
+</vant-row>
