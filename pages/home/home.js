@@ -12,7 +12,6 @@ Page({
       { name: "扫描ISBN", id: 0 }, { name: "手动录入", id: 1 }
     ]
   },
-
   openUploadBookAction() {
     this.setData(
       { uploadBookShow: true }

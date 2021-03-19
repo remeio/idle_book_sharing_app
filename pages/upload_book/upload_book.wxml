@@ -12,11 +12,13 @@
         <van-field model:value="{{ bookName }}" label="书名" placeholder="请输入书名" left-icon="orders-o" required />
         <van-field model:value="{{ isbn }}" label="ISBN" placeholder="请输入ISBN" left-icon="bookmark-o" />
         <van-field model:value="{{ bookDescription }}" label="书籍详情" placeholder="请输入书籍详情" type="textarea" autosize
-          left-icon="description" required/>
+          left-icon="description" required />
+        <van-cell center title="书籍类别" value="{{ bookTypeList[bookType] }}" icon="coupon-o" required
+          bind:click="showBookTypePopup" />
         <van-cell center title="最大共享天数" icon="clock-o" required>
           <van-stepper value="{{ 1 }}" integer min="7" max="63" step="7" />
         </van-cell>
-        <van-cell border="false"  title="书籍图片" icon="photo-o" required>
+        <van-cell border="{{ false }}" title="书籍图片" icon="photo-o" required>
           <view>
             <van-uploader file-list="{{ bookImageList }}" bind:after-read="afterBookImageListRead" max-count="3" />
           </view>
@@ -30,3 +32,7 @@
     </van-col>
   </van-row>
 </view>
+<van-popup show="{{ bookTypePopupShow }}" round position="bottom" custom-style="height: 40%"
+  bind:close="closeBookTypePopup">
+  <van-picker columns="{{ bookTypeList }}" bind:change="onChangeBookType" default-index="{{ 0 }}" />
+</van-popup>

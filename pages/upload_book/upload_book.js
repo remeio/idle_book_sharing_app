@@ -7,7 +7,21 @@ Page({
   data: {
     isbn: "",
     bookName: "",
-    bookImageList: []
+    bookImageList: [],
+    bookType: 0,
+    bookTypeList: ["其他", "教材", "小说", "文学", "传记", "艺术", "计算机", "历史", "法律", " 考试", "外语", "畅销", "科普", "医学", "工业技术", "自然科学", "原版书籍"],
+    bookTypePopupShow: false
+  },
+  onChangeBookType(event) {
+    const { picker, value, index } = event.detail;
+    this.setData({ bookType: index, })
+  },
+  showBookTypePopup() {
+    this.setData({ bookTypePopupShow: true });
+  },
+
+  closeBookTypePopup() {
+    this.setData({ bookTypePopupShow: false });
   },
 
   afterBookImageListRead(event) {
