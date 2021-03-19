@@ -6,3 +6,12 @@
 .special-tab-active {
   font-size: 1.05em !important;
 }
+
+
+.floatView {
+  position: fixed;
+  height: 90rpx;
+  width: 90rpx;
+  bottom: 60px;
+  right: 18px;
+}

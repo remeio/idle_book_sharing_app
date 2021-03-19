@@ -26,6 +26,29 @@ Page({
       { uploadBookShow: false }
     )
   },
+  uploadByScanCode() {
+    wx.scanCode({
+      success(res) {
+        if (res.scanType != "EAN_13") {
+          Toast("不是有效的ISBN，请重试或使用手动录入~");
+          return;
+        }
+        let isbn = res.result;
+        wx.navigateTo({
+          url: '/pages/upload_book/upload_book?isbn=' + isbn,
+        })
+      },
+      fail() {
+        Toast("扫描ISBN失败，请重试或使用手动录入~");
+      }
+    })
+  },
+
+  uploadByHand() {
+    wx.navigateTo({
+      url: '/pages/upload_book/upload_book?isbn=',
+    })
+  },
 
   /**
    * 选择上传书籍弹框
@@ -34,27 +57,11 @@ Page({
   uploadBookActionOnSelect(event) {
     // 扫码上传
     if (event.detail.id == 0) {
-      wx.scanCode({
-        success(res) {
-          if (res.scanType != "EAN_13") {
-            Toast("不是有效的ISBN，请重试或使用手动录入~");
-            return;
-          }
-          let isbn = res.result;
-          wx.navigateTo({
-            url: '/pages/upload_book/upload_book?isbn=' + isbn,
-          })
-        },
-        fail() {
-          Toast("扫描ISBN失败，请重试或使用手动录入~");
-        }
-      })
+      this.uploadByScanCode();
     }
     // 手动录入
     else if (event.detail.id == 1) {
-      wx.navigateTo({
-        url: '/pages/upload_book/upload_book?isbn=',
-      })
+      this.uploadByHand();
     }
   },
 
