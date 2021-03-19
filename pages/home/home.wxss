@@ -15,3 +15,9 @@
   bottom: 60px;
   right: 18px;
 }
+.custom-grid {
+  border-radius: 24rpx 24rpx 24rpx 24rpx;
+}
+.custom-grid-content {
+  height: 60px;
+}
