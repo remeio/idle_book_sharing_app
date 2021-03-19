@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "van-uploader": "@vant/weapp/uploader/index"
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index"
   },
   "navigationBarTitleText": "发布书籍"
 }

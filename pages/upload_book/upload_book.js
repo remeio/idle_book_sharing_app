@@ -1,3 +1,4 @@
+import Dialog from "@vant/weapp/dist/dialog/dialog";
 // pages/upload_book/upload_book.js
 Page({
 
@@ -8,9 +9,23 @@ Page({
     isbn: "",
     bookName: "",
     bookImageList: [],
+    bookShareDay: 7,
     bookType: 0,
     bookTypeList: ["其他", "教材", "小说", "文学", "传记", "艺术", "计算机", "历史", "法律", " 考试", "外语", "畅销", "科普", "医学", "工业技术", "自然科学", "原版书籍"],
     bookTypePopupShow: false
+  },
+  setBookShareDat(event) {
+    this.setData({ bookShareDay: event.detail })
+  },
+  toastBookShareDay() {
+    Dialog.alert({
+      title: '最大共享天数',
+      message: '最大共享天数是指所接受的最大共享天数，例如最大共享天数设为 21，则支持别人以 7，14，21 借出该书籍',
+      theme: 'round-button',
+    }).then(() => {
+      // on close
+    });
+
   },
   onChangeBookType(event) {
     const { picker, value, index } = event.detail;

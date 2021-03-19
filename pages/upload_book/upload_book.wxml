@@ -16,7 +16,8 @@
         <van-cell center title="书籍类别" value="{{ bookTypeList[bookType] }}" icon="coupon-o" required
           bind:click="showBookTypePopup" />
         <van-cell center title="最大共享天数" icon="clock-o" required>
-          <van-stepper value="{{ 1 }}" integer min="7" max="63" step="7" />
+          <van-stepper value="{{ bookShareDay }}" disable-input="{{ true }}"	integer min="7" max="98" step="7" bind:change="setBookShareDat" />
+          <van-icon slot="right-icon" name="question-o" class="custom-icon" bind:click="toastBookShareDay"/>
         </van-cell>
         <van-cell border="{{ false }}" title="书籍图片" icon="photo-o" required>
           <view>
@@ -27,11 +28,13 @@
     </van-col>
   </van-row>
   <van-row>
-    <van-col span="24" class="uploadBookButton">
-      <van-button type="primary" block>共享书籍</van-button>
+    <van-col span="24">
+      <van-submit-bar label="最大共享天数:" decimal-length="0"	currency="" price="{{ bookShareDay * 100 }}" button-text="共享书籍" bind:submit="onSubmit" tip="当前书籍将被共享到浙江师范大学"
+        />
     </van-col>
   </van-row>
 </view>
+<van-dialog id="van-dialog" />
 <van-popup show="{{ bookTypePopupShow }}" round position="bottom" custom-style="height: 40%"
   bind:close="closeBookTypePopup">
   <van-picker columns="{{ bookTypeList }}" bind:change="onChangeBookType" default-index="{{ 0 }}" />
