@@ -9,6 +9,7 @@
     <van-tabs sticky swipeable animated ellipsis="{{ false }}" color="#FD9163" line-width="28px" line-height="4px"
       tab-class="special-tab" tab-active-class="special-tab-active">
       <van-tab title="首页">
+        <banner></banner>
         <van-row>
           <van-col span="24">
             <van-grid column-num="4" border="{{ false }}" icon-size="30px">

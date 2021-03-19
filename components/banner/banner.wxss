@@ -1,0 +1,10 @@
+.swiper-item-images {
+  width: 100%;
+  height: 300rpx;
+  overflow: show;
+  border-radius: 24rpx 24rpx 24rpx 24rpx;
+}
+
+.swiper-box {
+  padding: 16rpx 16rpx 0rpx 16rpx;
+}

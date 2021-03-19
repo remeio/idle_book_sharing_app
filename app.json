@@ -6,7 +6,8 @@
     "pages/user/user",
     "pages/community/community",
     "pages/share/share",
-    "pages/upload_book/upload_book"
+    "pages/upload_book/upload_book",
+    "components/banner/banner"
   ],
   "window": {
     "backgroundTextStyle": "light",
