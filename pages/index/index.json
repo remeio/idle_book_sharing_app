@@ -1,5 +1,8 @@
 {
   "navigationBarTitleText": "闲置书籍共享平台",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50,
+  "backgroundTextStyle": "dark",
   "usingComponents": {
     "home-page": "/pages/home/home",
     "share-page": "/pages/share/share",
