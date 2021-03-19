@@ -17,7 +17,17 @@ Page({
   setBookShareDat(event) {
     this.setData({ bookShareDay: event.detail })
   },
-  toastBookShareDay() {
+  dialogBookDeposit() {
+    Dialog.alert({
+      title: '押金',
+      message: '押金用于保障书籍的安全，为 0 则可免押金借阅，不为 0 则需借阅者缴纳押金且押金才能借阅',
+      theme: 'round-button',
+    }).then(() => {
+      // on close
+    });
+
+  },
+  dialogBookShareDay() {
     Dialog.alert({
       title: '最大共享天数',
       message: '最大共享天数是指所接受的最大共享天数，例如最大共享天数设为 21，则支持别人以 7，14，21 借出该书籍',

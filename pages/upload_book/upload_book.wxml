@@ -17,7 +17,11 @@
           bind:click="showBookTypePopup" />
         <van-cell center title="最大共享天数" icon="clock-o" required>
           <van-stepper value="{{ bookShareDay }}" disable-input="{{ true }}"	integer min="7" max="98" step="7" bind:change="setBookShareDat" />
-          <van-icon slot="right-icon" name="question-o" class="custom-icon" bind:click="toastBookShareDay"/>
+          <van-icon slot="right-icon" name="question-o" class="custom-icon" bind:click="dialogBookShareDay" style="margin-left: 8px"/>
+        </van-cell>
+        <van-cell center title="所需押金" icon="balance-o" required>
+          <van-stepper value="{{ 0 }}" integer min="0" max="99" step="1" bind:change="" />
+          <van-icon slot="right-icon" name="question-o" class="custom-icon" bind:click="dialogBookDeposit" style="margin-left: 8px"/>
         </van-cell>
         <van-cell border="{{ false }}" title="书籍图片" icon="photo-o" required>
           <view>
