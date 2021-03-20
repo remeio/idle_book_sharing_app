@@ -36,7 +36,7 @@
                     <van-icon name="ellipsis" size="16px" bind:tap="uploadByScanCode" />
                   </van-col>
                 </van-row>
-                <van-row style="width: 100%">
+                <van-row style="width: 100%" bind:tap="toBookDetail" data-id="{{ index }}">
                   <van-col span="24">
                     <van-row>
                       <van-col span="24">
