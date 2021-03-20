@@ -6,9 +6,9 @@ Page({
   data: {
     // Banner数据
     images:[
-      "http://img.zcool.cn/community/0154755a2df102a80120ba3828b5af.jpg@1280w_1l_2o_100sh.jpg",
-      "http://pic.90sjimg.com/back_pic/00/00/69/40/bf4f8e2ab7e05dc3c7cc2a7f7e9c2fe7.jpg",
-      "http://img.zcool.cn/community/01a2a2594943d3a8012193a328e0fd.jpg@1280w_1l_2o_100sh.jpg"
+      "/resources/images/banner.png",
+      "/resources/images/banner.png",
+      "/resources/images/banner.png"
     ],
     // 是否显示面板指示点
     indicatorDots: true,
