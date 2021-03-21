@@ -35,6 +35,8 @@
     "van-popup": "@vant/weapp/popup/index",
     "van-dialog": "@vant/weapp/dialog/index",
     "van-divider": "@vant/weapp/divider/index",
-    "van-tag": "@vant/weapp/tag/index"
+    "van-tag": "@vant/weapp/tag/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
   }
 }

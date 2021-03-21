@@ -1,2 +1,13 @@
-<!--pages/share/share.wxml-->
-<text>pages/share/share.wxml</text>
+<van-row>
+  <van-col span="24">
+    <van-tabs sticky swipeable animated ellipsis="{{ false }}" color="#FD9163" line-width="28px" line-height="4px"
+      tab-class="special-tab" tab-active-class="special-tab-active">      
+      <van-tab title="借入"></van-tab>
+      <van-tab title="借出"></van-tab>
+      <van-tab title="共享">
+        <van-row>
+        </van-row>
+      </van-tab>
+    </van-tabs>
+  </van-col>
+</van-row>

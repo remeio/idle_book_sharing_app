@@ -17,3 +17,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.special-tab {
+  transition: all 0.25s ease-in-out;
+}
+
+.special-tab-active {
+  font-size: 1.05em !important;
+}
