@@ -13,12 +13,12 @@
         <van-row>
           <van-col span="24">
             <van-grid column-num="4" border="{{ false }}" icon-size="24px">
-              <van-grid-item icon="/resources/images/heart.png" text="今日推荐" />
+              <van-grid-item icon="/resources/images/heart.png" text="今日推荐" dot />
               <van-grid-item icon="/resources/images/course.png" text="最新共享" />
               <van-grid-item icon="/resources/images/to_do.png" text="书籍分类" />
               <van-grid-item icon="/resources/images/ranking_list.png" text="共享排行榜" />
               <van-grid-item icon="/resources/images/interest.png" text="借阅排行榜" />
-              <van-grid-item icon="/resources/images/notice.png" text="公告" />
+              <van-grid-item icon="/resources/images/notice.png" text="公告" badge="3" />
               <van-grid-item icon="/resources/images/sign_in.png" text="书评打卡" />
               <van-grid-item icon="/resources/images/feedback.png" text="反馈" />
             </van-grid>
@@ -29,7 +29,7 @@
         </van-divider>
         <van-row>
           <van-col span="24">
-            <van-grid column-num="2" border="{{ false }}" gutter="{{ 4 }}">
+            <van-grid column-num="2" border="{{ false }}" gutter="{{ 8 }}">
               <van-grid-item use-slot wx:for="{{ 4 }}" wx:for-item="index" content-class="book-content">
                 <van-row style="width: 100%">
                   <van-col span="24" style="float: right">

@@ -5,10 +5,9 @@ Page({
    */
   data: {
     // Banner数据
-    images:[
-      "/resources/images/banner.png",
-      "/resources/images/banner.png",
-      "/resources/images/banner.png"
+    images: [
+      "http://115.29.198.114/images/banner.png",
+      "http://115.29.198.114/images/banner3.png"
     ],
     // 是否显示面板指示点
     indicatorDots: true,
