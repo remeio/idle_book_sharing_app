@@ -1,4 +1,5 @@
-import Dialog from "@vant/weapp/dist/dialog/dialog";
+import Toast from "@vant/weapp/dist/toast/toast";
+var globalData = getApp().globalData;
 // pages/upload_book/upload_book.js
 Page({
 
@@ -6,8 +7,39 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userPhone: "",
+    userPassword: "",
+    userFullName: "",
+    schoolName: "",
+    loading: false
   },
-
+  signUp() {
+    let me = this;
+    me.setData({ loading: true })
+    wx.request({
+      url: globalData.serverUrl + '/user/signUp',
+      data: { "userPhone": me.data.userPhone, "userPassword": me.data.userPassword, "userFullName": me.data.userFullName, "schoolName": me.data.schoolName },
+      method: 'POST',
+      success: function (res) {
+        let dts = res.data
+        if (!dts.success) {
+          Toast(dts.errorInfo);
+          return;
+        }
+        Toast("注册成功，请前往登录");
+        wx.navigateBack({
+          delta: 0,
+        })
+      },
+      fail: function (e) {
+        console.log(e)
+        Toast("处理失败，请稍后重试");
+      },
+      complete: function () {
+        me.setData({ loading: false })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

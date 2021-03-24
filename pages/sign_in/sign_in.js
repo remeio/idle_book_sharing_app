@@ -11,17 +11,22 @@ Page({
     userPassword: "",
     loading: false
   },
+  toSignUp() {
+    wx.navigateTo({
+      url: '/pages/sign_up/sign_up',
+    })
+  },
   login() {
     let me = this;
     me.setData({ loading: true })
     wx.request({
       url: globalData.serverUrl + '/user/signIn',
-      data: { "userPhone": this.data.userPhone, "userPassword": this.data.userPassword },
+      data: { "userPhone": me.data.userPhone, "userPassword": me.data.userPassword },
       method: 'POST',
       success: function (res) {
         let dts = res.data
         if (!dts.success) {
-          Toast("登录失败，用户名或密码不正确");
+          Toast(dts.message);
           return;
         }
         Toast("登录成功");

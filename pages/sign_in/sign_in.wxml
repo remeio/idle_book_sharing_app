@@ -21,5 +21,12 @@
       <van-button round type="danger" block bind:click="login" wx:if="{{ !loading }}">登录</van-button>
     </van-col>
   </van-row>
+  <van-row style="margin: 12px">
+    <van-col span="22" offset="1">
+      <view class="view-center">
+        <text>没有账号，去</text><span bindtap="toSignUp" style="color: #ee0a24">注册</span>
+      </view>
+    </van-col>
+  </van-row>
   <van-toast id="van-toast" />
 </view>
