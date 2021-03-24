@@ -8,13 +8,15 @@ Page({
    */
   data: {
     userPhone: "",
-    userPassword: ""
+    userPassword: "",
+    loading: false
   },
   login() {
-    console.log(globalData.serverUrl + '/user/signIn')
+    let me = this;
+    me.setData({ loading: true })
     wx.request({
       url: globalData.serverUrl + '/user/signIn',
-      data: { "userPhone": this.data.userPhone, "userPassword": this.user },
+      data: { "userPhone": this.data.userPhone, "userPassword": this.data.userPassword },
       method: 'POST',
       success: function (res) {
         let dts = res.data
@@ -23,7 +25,10 @@ Page({
           return;
         }
         Toast("登录成功");
-        wx.navigate({
+        globalData.token = dts.token
+        globalData.userId = dts.userId
+        console.log(globalData.token, globalData.userId)
+        wx.reLaunch({
           url: '/pages/index/index',
         })
       },
@@ -32,7 +37,7 @@ Page({
         Toast("处理失败，请稍后重试");
       },
       complete: function () {
-
+        me.setData({ loading: false })
       }
     })
   },
