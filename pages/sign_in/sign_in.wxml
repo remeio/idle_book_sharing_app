@@ -21,5 +21,5 @@
       <van-button round type="danger" block bind:click="login" wx:if="{{ !loading }}">登录</van-button>
     </van-col>
   </van-row>
+  <van-toast id="van-toast" />
 </view>
-<van-toast id="van-toast" />
