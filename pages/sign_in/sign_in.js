@@ -26,7 +26,7 @@ Page({
       success: function (res) {
         let dts = res.data
         if (!dts.success) {
-          Toast(dts.message);
+          Toast(dts.errorInfo);
           return;
         }
         Toast("登录成功");
