@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index"
+  },
+  "navigationBarTitleText": "校园闲置书籍共享平台"
+}

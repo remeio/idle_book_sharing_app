@@ -1,0 +1,24 @@
+<view>
+  <van-row>
+    <van-col span="24">
+      <view class="view-center">
+        <van-image fit="heightFix" height="140" src="/resources/images/sapiens.png" />
+      </view>
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="24">
+      <van-cell-group>
+        <van-field model:value="{{ bookName }}" label="手机号" placeholder="请输入手机号" left-icon="orders-o" required />
+        <van-field model:value="{{ isbn }}" label="密码" placeholder="请输入密码" left-icon="bookmark-o" />
+        <van-field model:value="{{ isbn }}" label="姓名" placeholder="请输入姓名" left-icon="bookmark-o" />
+        <van-field model:value="{{ isbn }}" label="学校" placeholder="请输入学校" left-icon="bookmark-o" />
+      </van-cell-group>
+    </van-col>
+  </van-row>
+  <van-row style="margin: 12px">
+    <van-col span="22" offset="1">
+      <van-button round type="danger" block>注册</van-button>
+    </van-col>
+  </van-row>
+</view>
