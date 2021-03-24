@@ -12,7 +12,8 @@
               </view>
               <view slot="footer">
                 <van-button size="mini" round>复制订单号</van-button>
-                <van-button size="mini" type="danger" round style="margin-left: 4px">查看进度</van-button>
+                <van-button size="mini" round style="margin-left: 4px" bind:click="toMessage" data-order="1233112121212">沟通</van-button>
+                <van-button size="mini" type="danger" round style="margin-left: 4px" bind:click="toBorrowProgress" data-order="1233112121212">查看进度</van-button>
               </view>
             </van-card>
           </van-col>
@@ -39,3 +40,4 @@
     </van-tabs>
   </van-col>
 </van-row>
+<van-dialog id="van-dialog" />

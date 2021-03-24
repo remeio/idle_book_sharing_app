@@ -8,7 +8,8 @@
     "pages/share/share",
     "pages/upload_book/upload_book",
     "components/banner/banner",
-    "pages/book_detail/book_deatil"
+    "pages/book_detail/book_deatil",
+    "pages/message/message"
   ],
   "window": {
     "backgroundTextStyle": "light",

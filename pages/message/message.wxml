@@ -1,0 +1,11 @@
+<view class="page">
+  <van-row>
+    <van-col span="24">
+    </van-col>
+  </van-row>
+  <van-submit-bar button-text="发送" bind:submit="onClickButton" tip="{{ true }}">
+    <view>
+      <van-field value="{{ value }}" placeholder="请输入用户名" border="{{ false }}" bind:change="onChange" />
+    </view>
+  </van-submit-bar>
+</view>
