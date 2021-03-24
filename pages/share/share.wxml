@@ -5,7 +5,7 @@
       <van-tab title="借入记录">
         <van-row>
           <van-col span="24">
-            <van-card wx:for="{{ 4 }}" tag="借阅中" price="2.00" currency="押金：" desc="订单号: 1233112121212"
+            <van-card wx:for="{{ 4 }}" tag="借阅中" price="2.00" currency="押金：" desc="借阅日期: 2020年12月15日"
               title="数据结构与算法" thumb="/resources/images/1.jpg">
               <view slot="tags">
                 <van-tag round plain type="danger">T+7</van-tag>
@@ -40,4 +40,3 @@
     </van-tabs>
   </van-col>
 </van-row>
-<van-dialog id="van-dialog" />

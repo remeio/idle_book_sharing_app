@@ -1,29 +1,34 @@
-// pages/share/share.js
+// pages/borrow_progress/borrow_progress.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    order: "",
+    steps: [
+      {
+        text: '借阅者已下单，待交付书籍',
+        desc: '2020-2-45 12:88',
+      },
+      {
+        text: '借阅者已收到书籍，待归还',
+        desc: '-',
+      },
+      {
+        text: '共享者已收到书籍，交易完成',
+        desc: '-',
+      },
+    ]
   },
 
-  toBorrowProgress(e) {
-    wx.navigateTo({
-      url: '/pages/borrow_progress/borrow_progress?order=' + e.currentTarget.dataset.order,
-    })
-  },
-
-  toMessage(e) {
-    wx.navigateTo({
-      url: '/pages/message/message?order=' + e.currentTarget.dataset.order,
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      order: options.order
+    });
   },
 
   /**

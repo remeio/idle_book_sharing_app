@@ -1,0 +1,20 @@
+<view>
+    <van-row>
+    <van-col span="24">
+      <view class="view-center">
+        <van-image fit="heightFix" height="140" src="/resources/images/sapiens.png" />
+      </view>
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="24">
+      <van-steps steps="{{ steps }}" active="{{ active }}" direction="vertical"
+        active-color="#ee0a24"/>
+    </van-col>
+  </van-row>
+  <van-row style="margin: 12px">
+    <van-col span="22" offset="1">
+      <van-button round type="danger" block>已收到书籍</van-button>
+    </van-col>
+  </van-row>
+</view>

@@ -9,6 +9,7 @@
     "pages/upload_book/upload_book",
     "components/banner/banner",
     "pages/book_detail/book_deatil",
+    "pages/borrow_progress/borrow_progress",
     "pages/message/message"
   ],
   "window": {
