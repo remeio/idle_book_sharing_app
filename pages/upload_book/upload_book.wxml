@@ -16,16 +16,20 @@
         <van-cell center title="书籍类别" value="{{ bookCatalogNameList[bookCatalogIndex] }}" icon="coupon-o" required
           bind:click="showBookCatalogPopup" />
         <van-cell center title="最大共享天数" icon="clock-o" required>
-          <van-stepper value="{{ bookMaxPeriod }}" disable-input="{{ true }}"	integer min="7" max="98" step="7" bind:change="setBookMaxPeriod" />
-          <van-icon slot="right-icon" name="question-o" class="custom-icon" bind:click="dialogBookShareDay" style="margin-left: 8px"/>
+          <van-stepper value="{{ bookMaxPeriod }}" disable-input="{{ true }}" integer min="7" max="98" step="7"
+            bind:change="setBookMaxPeriod" />
+          <van-icon slot="right-icon" name="question-o" class="custom-icon" bind:click="dialogBookShareDay"
+            style="margin-left: 8px" />
         </van-cell>
         <van-cell center title="所需押金" icon="balance-o" required>
           <van-stepper value="{{ bookDeposit }}" integer min="0" max="99" step="1" bind:change="setBookDeposit" />
-          <van-icon slot="right-icon" name="question-o" class="custom-icon" bind:click="dialogBookDeposit" style="margin-left: 8px"/>
+          <van-icon slot="right-icon" name="question-o" class="custom-icon" bind:click="dialogBookDeposit"
+            style="margin-left: 8px" />
         </van-cell>
         <van-cell border="{{ false }}" title="书籍图片" icon="photo-o" required>
           <view>
-            <van-uploader file-list="{{ bookImageList }}" bind:after-read="afterBookImageListRead" max-count="1" bind:delete="deleteImage"/>
+            <van-uploader file-list="{{ bookImageList }}" bind:after-read="afterBookImageListRead" max-count="1"
+              bind:delete="deleteImage" />
           </view>
         </van-cell>
       </van-cell-group>
@@ -33,8 +37,12 @@
   </van-row>
   <van-row>
     <van-col span="24">
-      <van-submit-bar label="最大共享天数:" decimal-length="0"	currency="" price="{{ bookMaxPeriod * 100 }}" button-text="共享书籍" bind:submit="uploadBook" tip="当前书籍将被共享到: {{ currentSchoolName }}"
-        />
+      <van-submit-bar wx:if="{{ uploadLoading }}" label="最大共享天数:" decimal-length="0" currency=""
+        price="{{ bookMaxPeriod * 100 }}" button-text="共享书籍" bind:submit="uploadBook" loading
+        tip="当前书籍将被共享到: {{ currentSchoolName }}" />
+      <van-submit-bar wx:if="{{ !uploadLoading }}" label="最大共享天数:" decimal-length="0" currency=""
+        price="{{ bookMaxPeriod * 100 }}" button-text="共享书籍" bind:submit="uploadBook"
+        tip="当前书籍将被共享到: {{ currentSchoolName }}" />
     </van-col>
   </van-row>
 </view>
@@ -42,5 +50,6 @@
 <van-dialog id="van-dialog" />
 <van-popup show="{{ bookCatalogPopupShow }}" round position="bottom" custom-style="height: 40%"
   bind:close="closeBookCatalogPopup">
-  <van-picker columns="{{ bookCatalogNameList }}" bind:change="onChangeBookCatalog" default-index="{{ bookCatalogIndex }}" />
+  <van-picker columns="{{ bookCatalogNameList }}" bind:change="onChangeBookCatalog"
+    default-index="{{ bookCatalogIndex }}" />
 </van-popup>

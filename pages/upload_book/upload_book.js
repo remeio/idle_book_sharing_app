@@ -20,13 +20,15 @@ Page({
     // 状态
     bookImageList: [],
     bookCatalogPopupShow: false,
-    currentSchoolName: ' --- '
+    currentSchoolName: ' --- ',
+    uploadLoading: false
   },
   /**
    * 共享书籍
    */
   uploadBook() {
     let me = this
+    me.setData({uploadLoading: true})
     wx.request({
       url: globalData.serverUrl + '/book/uploadBook',
       data: {
@@ -53,6 +55,9 @@ Page({
         wx.navigateBack({
           delta: 0,
         })
+      },
+      complete: function() {
+        me.setData({uploadLoading: false})
       }
     })
   },
