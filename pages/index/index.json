@@ -7,6 +7,7 @@
     "home-page": "/pages/home/home",
     "share-page": "/pages/share/share",
     "community-page": "/pages/community/community",
+    "book-catalog-page": "/pages/book_catalog/book_catalog",
     "user-page": "/pages/user/user",
     "van-button": "@vant/weapp/button/index",
     "van-tabbar": "@vant/weapp/tabbar/index",
