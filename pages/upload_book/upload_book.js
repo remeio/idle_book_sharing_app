@@ -1,4 +1,6 @@
 import Dialog from "@vant/weapp/dist/dialog/dialog";
+import Toast from "@vant/weapp/dist/toast/toast";
+var globalData = getApp().globalData;
 // pages/upload_book/upload_book.js
 Page({
 
@@ -49,19 +51,34 @@ Page({
     this.setData({ bookTypePopupShow: false });
   },
 
+  /**
+   * 上传图片
+   * @param {*} event 
+   */
   afterBookImageListRead(event) {
+    let me = this
     const { file } = event.detail;
-    // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
+    if (file.type != "image") {
+      Toast("选择的不是图片")
+      return;
+    }
+    console.log(file)
+    // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式 （mutiple 默认为 false）
     wx.uploadFile({
-      url: 'https://example.weixin.qq.com/upload', // 仅为示例，非真实的接口地址
+      url: globalData.serverUrl + "/file/uploadFile", // 仅为示例，非真实的接口地址
       filePath: file.url,
       name: 'file',
-      formData: { user: 'test' },
       success(res) {
-        // 上传完成需要更新 fileList
-        const { fileList = [] } = this.data;
-        fileList.push({ ...file, url: res.data });
-        this.setData({ fileList });
+        console.log(res)
+        let dts = JSON.parse(res.data)
+        console.log(dts)
+        if (!dts.success) {
+          Toast("图片上传失败, " + dts.errorInfo)
+          return;
+        }
+        const { bookImageList = [] } = me.data;
+        bookImageList.push({ ...file, url: dts.filePath });
+        me.setData({ bookImageList });
       },
     });
   },

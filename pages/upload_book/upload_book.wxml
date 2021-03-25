@@ -25,7 +25,7 @@
         </van-cell>
         <van-cell border="{{ false }}" title="书籍图片" icon="photo-o" required>
           <view>
-            <van-uploader file-list="{{ bookImageList }}" bind:after-read="afterBookImageListRead" max-count="3" />
+            <van-uploader file-list="{{ bookImageList }}" bind:after-read="afterBookImageListRead" max-count="1" />
           </view>
         </van-cell>
       </van-cell-group>
@@ -38,6 +38,7 @@
     </van-col>
   </van-row>
 </view>
+<van-toast id="van-toast" />
 <van-dialog id="van-dialog" />
 <van-popup show="{{ bookTypePopupShow }}" round position="bottom" custom-style="height: 40%"
   bind:close="closeBookTypePopup">
