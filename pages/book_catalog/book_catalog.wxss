@@ -1,4 +1,0 @@
-/* pages/book_catalog/book_catalog.wxss */
-.bookCatalogSidebar {
-  height: 24px;
-}
