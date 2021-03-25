@@ -51,11 +51,20 @@ Page({
     this.setData({ bookTypePopupShow: false });
   },
 
+  deleteImage(event) {
+    console.log(event)
+    const { index, name } = event.detail;
+    const fileList = this.data[`bookImageList${name}`];
+    fileList.splice(index, 1);
+    this.setData({ [`bookImageList${name}`]: fileList });
+  },
+
   /**
    * 上传图片
    * @param {*} event 
    */
   afterBookImageListRead(event) {
+    console.log(event)
     let me = this
     const { file } = event.detail;
     if (file.type != "image") {
@@ -77,7 +86,7 @@ Page({
           return;
         }
         const { bookImageList = [] } = me.data;
-        bookImageList.push({ ...file, url: dts.filePath });
+        bookImageList.push({ ...file, url: dts.filePath});
         me.setData({ bookImageList });
       },
     });
