@@ -23,10 +23,38 @@ Page({
     currentSchoolName: ' --- '
   },
   /**
-   * 上传书籍
+   * 共享书籍
    */
   uploadBook() {
-
+    let me = this
+    wx.request({
+      url: globalData.serverUrl + '/book/uploadBook',
+      data: {
+        bookCatalogId: me.data.bookCatalogIdList[me.data.bookCatalogIndex],
+        bookDeposit: me.data.bookDeposit,
+        bookDescription: me.data.bookDescription,
+        bookImageUrl: me.data.bookImageList[0] ? me.data.bookImageList[0].url : null,
+        bookIsbn: me.data.bookIsbn,
+        bookMaxPeriod: me.data.bookMaxPeriod,
+        bookName: me.data.bookName
+      },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/json",
+        'authorization': globalData.token
+      },
+      success: function (res) {
+        let dts = res.data
+        if (!dts.success) {
+          Toast("共享书籍失败，" + dts.errorInfo)
+          return;
+        }
+        Toast("共享成功")
+        wx.navigateBack({
+          delta: 0,
+        })
+      }
+    })
   },
   setBookDeposit(event) {
     this.setData({ bookDeposit: event.detail })
