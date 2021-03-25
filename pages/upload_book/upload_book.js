@@ -14,7 +14,8 @@ Page({
     bookShareDay: 7,
     bookType: 0,
     bookTypeList: ["其他", "教材", "小说", "文学", "传记", "艺术", "计算机", "历史", "法律", " 考试", "外语", "畅销", "科普", "医学", "工业技术", "自然科学", "原版书籍"],
-    bookTypePopupShow: false
+    bookTypePopupShow: false,
+    currentSchoolName: ' --- '
   },
   setBookShareDat(event) {
     this.setData({ bookShareDay: event.detail })
@@ -86,67 +87,89 @@ Page({
           return;
         }
         const { bookImageList = [] } = me.data;
-        bookImageList.push({ ...file, url: dts.filePath});
+        bookImageList.push({ ...file, url: dts.filePath });
         me.setData({ bookImageList });
       },
     });
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.setData({
-      isbn: options.isbn
+  getSchoolName: function () {
+    let me = this
+    wx.request({
+      url: globalData.serverUrl + '/user/getSchoolInfo',
+      data: {},
+      method: 'POST',
+      header: {
+        "Content-Type": "application/json",
+        'authorization': globalData.token
+      },
+      success: function (res) {
+        let dts = res.data
+        if (!dts.success) {
+          return;
+        }
+        me.setData({ currentSchoolName: dts.schoolName })
+      }
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+/**
+ * 生命周期函数--监听页面加载
+ */
+onLoad: function (options) {
+  this.setData({
+    isbn: options.isbn
+  })
+  // 获取当前学校
+  this.getSchoolName()
+},
 
-  },
+/**
+ * 生命周期函数--监听页面初次渲染完成
+ */
+onReady: function () {
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+},
 
-  },
+/**
+ * 生命周期函数--监听页面显示
+ */
+onShow: function () {
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+},
 
-  },
+/**
+ * 生命周期函数--监听页面隐藏
+ */
+onHide: function () {
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+},
 
-  },
+/**
+ * 生命周期函数--监听页面卸载
+ */
+onUnload: function () {
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+},
 
-  },
+/**
+ * 页面相关事件处理函数--监听用户下拉动作
+ */
+onPullDownRefresh: function () {
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+},
 
-  },
+/**
+ * 页面上拉触底事件的处理函数
+ */
+onReachBottom: function () {
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+},
 
-  }
+/**
+ * 用户点击右上角分享
+ */
+onShareAppMessage: function () {
+
+}
 })

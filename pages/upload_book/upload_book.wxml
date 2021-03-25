@@ -33,7 +33,7 @@
   </van-row>
   <van-row>
     <van-col span="24">
-      <van-submit-bar label="最大共享天数:" decimal-length="0"	currency="" price="{{ bookShareDay * 100 }}" button-text="共享书籍" bind:submit="onSubmit" tip="当前书籍将被共享到浙江师范大学"
+      <van-submit-bar label="最大共享天数:" decimal-length="0"	currency="" price="{{ bookShareDay * 100 }}" button-text="共享书籍" bind:submit="onSubmit" tip="当前书籍将被共享到: {{ currentSchoolName }}"
         />
     </van-col>
   </van-row>
