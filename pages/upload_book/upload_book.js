@@ -185,12 +185,58 @@ Page({
     })
   },
 
+  fillByIsbn(isbn) {
+    let me = this
+    if (isbn == "" || isbn == null || isbn == undefined) {
+      Toast("不是有效的ISBN")
+      return;
+    }
+    wx.request({
+      url: "https://route.showapi.com/2218-1",
+      data: {
+        'isbn': isbn,
+        'showapi_appid': '577146',
+        'showapi_sign': '50920cba02b6430486eda10e54815e91',
+      },
+      method: 'GET',
+      success: function (res) {
+        let dts = res.data
+        if (dts.showapi_res_code != 0) {
+          Toast("没有找到相应书籍，请手动输入")
+          return;
+        }
+        if (dts.showapi_res_body.ret_code != 0) {
+          Toast("没有找到相应书籍，请手动输入")
+          return;
+        }
+        let bookInfo = dts.showapi_res_body.datas[0];
+        let title = bookInfo.title
+        let description = bookInfo.gist
+        // 字符串过长进行截取
+        if (description.length > 20) {
+          description = description.substring(0, 20) + "..."
+        }
+        let imageUrl = bookInfo.img
+        // 押金跟随定价，最大为 99
+        let price = parseInt(bookInfo.price) > 99 ? 99 : parseInt(bookInfo.price);
+        let imageList = []
+        if (imageUrl && imageUrl != null && imageUrl != "") {
+          imageList.push({url: imageUrl})
+        }
+        me.setData({ bookName: title, bookDescription: description,  bookImageList: imageList, bookDeposit: price})
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.isbn) {
+      this.fillByIsbn(options.isbn)
+    }
     this.setData({
-      isbn: options.isbn
+      bookIsbn: options.isbn
     })
     // 获取当前学校
     this.getSchoolName()
