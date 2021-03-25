@@ -8,17 +8,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isbn: "",
-    bookName: "",
+    // uploadBook
+    bookName: '',
+    bookIsbn: '',
+    bookDescription: '',
+    bookMaxPeriod: 7,
+    bookDeposit: 0,
+    bookCatalogIndex: 0,
+    bookCatalogIdList: [],
+    bookCatalogNameList: [],
+    // 状态
     bookImageList: [],
-    bookShareDay: 7,
-    bookType: 0,
-    bookTypeList: ["其他", "教材", "小说", "文学", "传记", "艺术", "计算机", "历史", "法律", " 考试", "外语", "畅销", "科普", "医学", "工业技术", "自然科学", "原版书籍"],
-    bookTypePopupShow: false,
+    bookCatalogPopupShow: false,
     currentSchoolName: ' --- '
   },
-  setBookShareDat(event) {
-    this.setData({ bookShareDay: event.detail })
+  /**
+   * 上传书籍
+   */
+  uploadBook() {
+
+  },
+  setBookDeposit(event) {
+    this.setData({ bookDeposit: event.detail })
+  },
+
+  setBookMaxPeriod(event) {
+    this.setData({ bookMaxPeriod: event.detail })
   },
   dialogBookDeposit() {
     Dialog.alert({
@@ -40,16 +55,16 @@ Page({
     });
 
   },
-  onChangeBookType(event) {
+  onChangeBookCatalog(event) {
     const { picker, value, index } = event.detail;
-    this.setData({ bookType: index, })
+    this.setData({ bookCatalogIndex: index, })
   },
-  showBookTypePopup() {
-    this.setData({ bookTypePopupShow: true });
+  showBookCatalogPopup() {
+    this.setData({ bookCatalogPopupShow: true });
   },
 
-  closeBookTypePopup() {
-    this.setData({ bookTypePopupShow: false });
+  closeBookCatalogPopup() {
+    this.setData({ bookCatalogPopupShow: false });
   },
 
   deleteImage(event) {
@@ -93,6 +108,35 @@ Page({
     });
   },
 
+  getBookCatalogList() {
+    let me = this
+    wx.request({
+      url: globalData.serverUrl + '/book/getBookCatalogList',
+      data: {},
+      method: 'POST',
+      success: function (res) {
+        let dts = res.data
+        if (!dts.success) {
+          return;
+        }
+        let bookCatalogList = dts.bookCatalogDTOList;
+        let bookCatalogIds = []
+        let bookCatalogNames = []
+        for (let i = 0; i < bookCatalogList.length; i++) {
+          let bookCatalog = bookCatalogList[i];
+          bookCatalogIds.push(bookCatalog.id)
+          bookCatalogNames.push(bookCatalog.bookCatalogName)
+        }
+        console.log(bookCatalogIds, bookCatalogNames, me.data.bookCatalogIndex)
+        me.setData({
+          bookCatalogIndex: 0,
+          bookCatalogIdList: bookCatalogIds,
+          bookCatalogNameList: bookCatalogNames
+        })
+      }
+    })
+  },
+
   getSchoolName: function () {
     let me = this
     wx.request({
@@ -113,63 +157,65 @@ Page({
     })
   },
 
-/**
- * 生命周期函数--监听页面加载
- */
-onLoad: function (options) {
-  this.setData({
-    isbn: options.isbn
-  })
-  // 获取当前学校
-  this.getSchoolName()
-},
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.setData({
+      isbn: options.isbn
+    })
+    // 获取当前学校
+    this.getSchoolName()
+    // 获取书籍分类
+    this.getBookCatalogList()
+  },
 
-/**
- * 生命周期函数--监听页面初次渲染完成
- */
-onReady: function () {
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
 
-},
+  },
 
-/**
- * 生命周期函数--监听页面显示
- */
-onShow: function () {
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
 
-},
+  },
 
-/**
- * 生命周期函数--监听页面隐藏
- */
-onHide: function () {
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
 
-},
+  },
 
-/**
- * 生命周期函数--监听页面卸载
- */
-onUnload: function () {
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
 
-},
+  },
 
-/**
- * 页面相关事件处理函数--监听用户下拉动作
- */
-onPullDownRefresh: function () {
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
 
-},
+  },
 
-/**
- * 页面上拉触底事件的处理函数
- */
-onReachBottom: function () {
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
 
-},
+  },
 
-/**
- * 用户点击右上角分享
- */
-onShareAppMessage: function () {
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
 
-}
+  }
 })
