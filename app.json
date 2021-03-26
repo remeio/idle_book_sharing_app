@@ -36,6 +36,7 @@
     "van-divider": "@vant/weapp/divider/index",
     "van-tag": "@vant/weapp/tag/index",
     "van-tab": "@vant/weapp/tab/index",
-    "van-tabs": "@vant/weapp/tabs/index"
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-empty": "@vant/weapp/empty/index"
   }
 }
