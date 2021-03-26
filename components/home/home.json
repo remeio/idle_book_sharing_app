@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "banner": "/components/banner/banner"
+  }
+}

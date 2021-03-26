@@ -3,17 +3,11 @@
     "pages/sign_in/sign_in",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/home/home",
-    "pages/user/user",
-    "pages/community/community",
-    "pages/share/share",
     "pages/upload_book/upload_book",
-    "components/banner/banner",
     "pages/book_detail/book_deatil",
     "pages/borrow_progress/borrow_progress",
     "pages/message/message",
-    "pages/sign_up/sign_up",
-    "pages/book_catalog/book_catalog"
+    "pages/sign_up/sign_up"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -11,7 +11,7 @@
 </view>
 <view class="page" wx:if="{{ active != 1 }}">
   <home-page wx:if="{{ active == 0 }}"></home-page>
-  <community-page wx:if="{{ active == 2 }}"></community-page>
+  <bookcase-page wx:if="{{ active == 2 }}"></bookcase-page>
   <share-page wx:if="{{ active == 3 }}"></share-page>
   <user-page wx:if="{{ active == 4 }}"></user-page>
   <van-toast id="van-toast" />

@@ -1,0 +1,42 @@
+<van-row>
+  <van-col span="24">
+    <van-tabs sticky swipeable animated ellipsis="{{ false }}" color="#FD9163" line-width="28px" line-height="4px"
+      tab-class="special-tab" tab-active-class="special-tab-active">
+      <van-tab title="借入记录">
+        <van-row>
+          <van-col span="24">
+            <van-card wx:for="{{ 4 }}" tag="借阅中" price="2.00" currency="押金：" desc="借阅日期: 2020年12月15日"
+              title="数据结构与算法" thumb="/resources/images/1.jpg">
+              <view slot="tags">
+                <van-tag round plain type="danger">T+7</van-tag>
+              </view>
+              <view slot="footer">
+                <van-button size="mini" round>复制订单号</van-button>
+                <van-button size="mini" round style="margin-left: 4px" bind:click="toMessage" data-order="1233112121212">沟通</van-button>
+                <van-button size="mini" type="danger" round style="margin-left: 4px" bind:click="toBorrowProgress" data-order="1233112121212">查看进度</van-button>
+              </view>
+            </van-card>
+          </van-col>
+        </van-row>
+      </van-tab>
+      <van-tab title="借出记录"></van-tab>
+      <van-tab title="我的共享">
+        <van-row>
+          <van-col span="24">
+            <van-card wx:for="{{ 4 }}" tag="借阅中" price="2.00" currency="押金：" desc="描述信息"
+              title="2018秋冬新款男士休闲时尚军绿飞行夹克秋冬新款男" thumb="/resources/images/1.jpg">
+              <view slot="tags">
+                <van-tag round plain type="primary">其他</van-tag>
+                <van-tag round plain type="danger" style="margin-left: 4px">T+7</van-tag>
+              </view>
+              <view slot="footer">
+                <van-button size="mini" round>编辑</van-button>
+                <van-button size="mini" type="danger" round style="margin-left: 4px">下架</van-button>
+              </view>
+            </van-card>
+          </van-col>
+        </van-row>
+      </van-tab>
+    </van-tabs>
+  </van-col>
+</van-row>

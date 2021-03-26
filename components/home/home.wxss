@@ -1,0 +1,12 @@
+/* pages/home/home.wxss */
+.floatView {
+  position: fixed;
+  height: 90rpx;
+  width: 90rpx;
+  bottom: 60px;
+  right: 18px;
+}
+
+.book-content {
+  border-radius: 24rpx 24rpx 24rpx 24rpx;
+}
