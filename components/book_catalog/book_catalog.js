@@ -79,7 +79,12 @@ Component({
           })
         }
       })
-    }
+    },
+    toBookDetail(e) {
+      wx.navigateTo({
+        url: '/pages/book_detail/book_deatil?bookId=' + e.currentTarget.dataset.id,
+      })
+    },
   },
 
   lifetimes: {
