@@ -6,7 +6,7 @@
         <van-icon name="scan" size="24px" bind:tap="uploadByScanCode" />
       </view>
     </van-search>
-    <van-tabs sticky swipeable animated ellipsis="{{ false }}" color="#FD9163" line-width="28px" line-height="4px"
+    <van-tabs animated ellipsis="{{ false }}" color="#FD9163" line-width="28px" line-height="4px"
       tab-class="special-tab" tab-active-class="special-tab-active">
       <van-tab title="首页">
         <banner></banner>
