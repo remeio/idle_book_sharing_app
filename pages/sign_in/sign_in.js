@@ -29,13 +29,14 @@ Page({
           Toast(dts.errorInfo);
           return;
         }
-        Toast("登录成功");
         globalData.token = dts.token
         globalData.userId = dts.userId
-        console.log(globalData.token, globalData.userId)
-        wx.reLaunch({
-          url: '/pages/index/index',
-        })
+        Toast("登录成功")
+        setTimeout(function() {
+          wx.reLaunch({
+            url: '/pages/index/index',
+          })
+        }, 1000)
       },
       fail: function (e) {
         console.log(e)

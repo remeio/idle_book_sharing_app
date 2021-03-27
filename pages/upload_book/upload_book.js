@@ -52,9 +52,11 @@ Page({
           return;
         }
         Toast("共享成功")
-        wx.navigateBack({
-          delta: 0,
-        })
+        setTimeout(function() {
+          wx.navigateBack({
+            delta: 0,
+          })
+        }, 1000)
       },
       complete: function() {
         me.setData({uploadLoading: false})
