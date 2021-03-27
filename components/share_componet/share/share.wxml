@@ -1,0 +1,21 @@
+<!--components/share_componet/share/share.wxml-->
+<van-row>
+  <van-col span="24">
+    <van-card wx:for="{{ bookList }}" wx:key="item.id" price="{{ item.bookDeposit }}.00" currency="押金:"
+      desc="{{ item.bookDescription }}" title="{{ item.bookName }}" thumb="{{ item.bookImageUrl }}" num="1">
+      <van-tag mark type="primary" wx:if="{{ item.bookStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">空闲</van-tag>
+      <van-tag mark type="success" wx:if="{{ item.bookStatus == '2' }}" slot="tag" custom-class="custom-tag-of-card">受理中</van-tag>
+      <van-tag mark type="danger" wx:if="{{ item.bookStatus == '3' }}" slot="tag" custom-class="custom-tag-of-card">异常</van-tag>
+      <van-tag mark type="warning" wx:if="{{ item.bookStatus == '4' }}" slot="tag" custom-class="custom-tag-of-card">已下架</van-tag>
+      <view slot="tags">
+        <van-tag  type="primary">{{ item.bookCatalogName }}</van-tag>
+        <van-tag type="danger" style="margin-left: 4px">T+{{ item.bookMaxPeriod }}</van-tag>
+      </view>
+      <view slot="footer">
+        <van-button size="mini" round>删除</van-button>
+        <van-button size="mini" type="danger" round style="margin-left: 4px"  wx:if="{{ item.bookStatus == '4' }}">上架</van-button>
+        <van-button size="mini" type="danger" round style="margin-left: 4px" wx:if="{{ item.bookStatus != '4' }}">下架</van-button>
+      </view>
+    </van-card>
+  </van-col>
+</van-row>

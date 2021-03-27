@@ -1,0 +1,18 @@
+<!--components/share_componet/borrow/borrow.wxml-->
+<van-row>
+  <van-col span="24">
+    <van-card wx:for="{{ 4 }}" tag="借阅中" price="2.00" currency="押金：" desc="借阅日期: 2020年12月15日" title="数据结构与算法"
+      thumb="/resources/images/1.jpg">
+      <view slot="tags">
+        <van-tag round plain type="danger">T+7</van-tag>
+      </view>
+      <view slot="footer">
+        <van-button size="mini" round>复制订单号</van-button>
+        <van-button size="mini" round style="margin-left: 4px" bind:click="toMessage" data-order="1233112121212">沟通
+        </van-button>
+        <van-button size="mini" type="danger" round style="margin-left: 4px" bind:click="toBorrowProgress"
+          data-order="1233112121212">查看进度</van-button>
+      </view>
+    </van-card>
+  </van-col>
+</van-row>

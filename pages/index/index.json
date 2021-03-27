@@ -4,11 +4,11 @@
   "onReachBottomDistance": 50,
   "backgroundTextStyle": "dark",
   "usingComponents": {
-    "home-page": "/components/home/home",
-    "share-page": "/components/share/share",
-    "bookcase-page": "/components/bookcase/bookcase",
-    "book-catalog-page": "/components/book_catalog/book_catalog",
-    "user-page": "/components/user/user",
+    "home": "/components/home/home",
+    "share": "/components/share/share",
+    "bookcase": "/components/bookcase/bookcase",
+    "book-catalog": "/components/book_catalog/book_catalog",
+    "user": "/components/user/user",
     "van-button": "@vant/weapp/button/index",
     "van-tabbar": "@vant/weapp/tabbar/index",
     "van-tabbar-item": "@vant/weapp/tabbar-item/index"

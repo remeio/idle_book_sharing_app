@@ -1,6 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "van-card": "@vant/weapp/card/index"
+    "share": "/components/share_componet/share/share",
+    "borrow": "/components/share_componet/borrow/borrow",
+    "lend": "/components/share_componet/lend/lend"
   }
 }

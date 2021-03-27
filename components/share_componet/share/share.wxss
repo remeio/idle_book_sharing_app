@@ -1,0 +1,6 @@
+/* components/share_componet/share/share.wxss */
+.custom-tag-of-card {
+  position: absolute !important;
+  top: 2px;
+  left: 0
+}
