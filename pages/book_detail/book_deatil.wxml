@@ -26,8 +26,10 @@
         <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
         <van-goods-action-icon icon="send-gift-o" text="书箱" bind:click="onClickIcon" />
         <van-goods-action-button text="加入书箱" type="warning" bind:click="onClickButton" />
-        <van-goods-action-button text="立即借阅" bind:click="onClickButton" />
+        <van-goods-action-button text="立即借阅" bind:click="borrowBook" wx:if="{{ !borrowLoading }}"/>
+        <van-goods-action-button loading wx:if="{{ borrowLoading }}"/>
       </van-goods-action>
     </van-col>
   </van-row>
+  <van-toast id="van-toast" />
 </view>

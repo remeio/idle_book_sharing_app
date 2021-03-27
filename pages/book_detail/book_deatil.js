@@ -1,3 +1,5 @@
+const { default: Toast } = require("@vant/weapp/dist/toast/toast");
+
 // pages/book_detail/book_deatil.js
 var globalData = getApp().globalData;
 Page({
@@ -15,7 +17,9 @@ Page({
     bookMaxPeriod: 0,
     bookDeposit: 0,
     userFullName: "",
-    schoolName: ""
+    schoolName: "",
+    // 状态
+    borrowLoading: false
   },
 
   getBookInfo() {
@@ -44,6 +48,32 @@ Page({
       }
     })
   },
+
+  borrowBook() {
+    let me = this
+    me.setData({borrowLoading: true})
+    wx.request({
+      url: globalData.serverUrl + '/book/borrowBook',
+      data: { bookId: parseInt(me.data.bookId) },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/json",
+        'authorization': globalData.token
+      },
+      success: function (res) {
+        let dts = res.data
+        if (!dts.success) {
+          Toast("借阅失败，" + dts.errorInfo)
+          return;
+        }
+        Toast("借阅成功")
+      },
+      complete: function() {
+        me.setData({borrowLoading: false})
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
