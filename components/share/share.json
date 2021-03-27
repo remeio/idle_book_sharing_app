@@ -2,7 +2,6 @@
   "component": true,
   "usingComponents": {
     "share": "/components/share_componet/share/share",
-    "borrow": "/components/share_componet/borrow/borrow",
-    "lend": "/components/share_componet/lend/lend"
+    "share-record": "/components/share_componet/share_record/share_record"
   }
 }

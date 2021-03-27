@@ -3,10 +3,10 @@
     <van-tabs sticky ellipsis="{{ false }}" color="#FD9163" line-width="28px" line-height="4px"
       tab-class="special-tab" tab-active-class="special-tab-active">
       <van-tab title="借入记录">
-        <borrow></borrow>
+        <share-record borrowOrLend="borrow"></share-record>
       </van-tab>
       <van-tab title="借出记录">
-        <lend></lend>
+        <share-record borrowOrLend="lend"></share-record>
       </van-tab>
       <van-tab title="我的共享">
         <share></share>
