@@ -21,6 +21,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    toBorrowProgress() {
+    },
     getShareRecord() {
       let me = this
       wx.request({
