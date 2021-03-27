@@ -1,7 +1,7 @@
 <!--components/share_componet/lend/lend.wxml-->
 <van-row>
   <van-col span="24">
-    <van-card wx:for="{{ shareRecordList }}"  wx:key="id" price="{{ item.bookDeposit }}.00" currency="押金:" desc="{{ item.gmtCreate }}" title="{{ item.bookName }}" num="1"
+    <van-card  bind:tap="toBookDetail" data-id="{{ item.id }}" wx:for="{{ shareRecordList }}"  wx:key="id" price="{{ item.bookDeposit }}.00" currency="押金:" desc="{{ item.gmtCreate }}" title="{{ item.bookName }}" num="1"
       thumb="{{ item.bookImageUrl }}">
       <van-tag mark type="primary" wx:if="{{ item.recordStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">已下单</van-tag>
       <van-tag mark type="info" wx:if="{{ item.recordStatus == '2' }}" slot="tag" custom-class="custom-tag-of-card">借阅中</van-tag>
