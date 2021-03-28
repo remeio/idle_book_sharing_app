@@ -1,15 +1,15 @@
 <van-row>
   <van-col span="24">
     <van-tabs  ellipsis="{{ false }}" color="#FD9163" line-width="28px" line-height="4px"
-      tab-class="special-tab" tab-active-class="special-tab-active">
+      tab-class="special-tab" tab-active-class="special-tab-active" bind:click="onTabsClick">
       <van-tab title="借入记录">
-        <share-record borrowOrLend="borrow"></share-record>
+        <share-record id="share-record-borrow" borrowOrLend="borrow"></share-record>
       </van-tab>
       <van-tab title="借出记录">
-        <share-record borrowOrLend="lend"></share-record>
+        <share-record id="share-record-lend" borrowOrLend="lend"></share-record>
       </van-tab>
       <van-tab title="我的共享">
-        <share></share>
+        <share id="share"></share>
       </van-tab>
     </van-tabs>
   </van-col>

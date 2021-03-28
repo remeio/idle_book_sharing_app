@@ -11,23 +11,31 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    subComponents: {}
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    toBorrowProgress(e) {
-      wx.navigateTo({
-        url: '/pages/borrow_progress/borrow_progress?order=' + e.currentTarget.dataset.order,
+    onTabsClick(e) {
+      if (e.detail.index == 1) {
+        this.data.subComponents.srBorrow.getShareRecord()
+      } else if (e.detail.index == 2) {
+        this.data.subComponents.srLend.getShareRecord()
+      } else if (e.detail.index == 3) {
+        this.data.subComponents.share.getBookList()
+      }
+    }
+  },
+  lifetimes: {
+    ready: function () {
+      let srBorrow = this.selectAllComponents("#share-record-borrow")[0]
+      let srLend = this.selectAllComponents("#share-record-lend")[0]
+      let share = this.selectAllComponents("#share")[0]
+      this.setData({
+        subComponents: { srBorrow: srBorrow, srLend: srLend, share: share }
       })
-    },
-  
-    toMessage(e) {
-      wx.navigateTo({
-        url: '/pages/message/message?order=' + e.currentTarget.dataset.order,
-      })
-    },
+    }
   }
 })
