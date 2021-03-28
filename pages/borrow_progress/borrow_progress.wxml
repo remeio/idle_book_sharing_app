@@ -11,6 +11,15 @@
       <van-cell-group>
         <van-cell title="书籍名称：" value="{{ shareRecord.bookName }}" />
         <van-cell title="订单编号：" value="{{ shareRecord.orderNo }}" />
+        <van-cell title="剩余时间：" wx:if="{{shareRecord.recordStatus == 2}}">
+          <van-count-down use-slot time="{{ countDownTime }}" bind:change="onCountDownTimeChange">
+            <text class="countDownItem" style="background-color: #1989fa"
+              wx:if="{{ countDownTimeData.days > 0 }}">{{ countDownTimeData.days }} 天</text>
+            <text class="countDownItem">{{ countDownTimeData.hours <= 9 ? '0' + countDownTimeData.hours : countDownTimeData.hours }}</text>
+            <text class="countDownItem">{{countDownTimeData.minutes <= 9 ? '0' + countDownTimeData.minutes : countDownTimeData.minutes}}</text>
+            <text class="countDownItem">{{ countDownTimeData.seconds <= 9 ? '0' + countDownTimeData.seconds : countDownTimeData.seconds }}</text>
+          </van-count-down>
+        </van-cell>
       </van-cell-group>
     </van-col>
   </van-row>
@@ -21,7 +30,7 @@
   </van-row>
   <van-row style="margin: 12px" wx:if="{{ isBorrow == true && shareRecord.recordStatus ==  1}}">
     <van-col span="22" offset="1">
-      <van-button round type="danger" block  bind:click="receiveBook">收到书籍</van-button>
+      <van-button round type="danger" block bind:click="receiveBook">收到书籍</van-button>
     </van-col>
   </van-row>
   <van-row style="margin: 12px" wx:if="{{ isBorrow == false && shareRecord.recordStatus ==  2}}">
@@ -31,20 +40,22 @@
   </van-row>
   <van-row style="margin: 12px" wx:if="{{ shareRecord.recordStatus ==  1}}">
     <van-col span="22" offset="1">
-      <van-button round block  bind:click="cancelBorrowBook">取消订单</van-button>
+      <van-button round block bind:click="cancelBorrowBook">取消订单</van-button>
     </van-col>
   </van-row>
   <van-row style="margin: 12px" wx:if="{{ isBorrow == true && shareRecord.recordStatus ==  2}}">
     <van-col span="22" offset="1">
       <view class="view-center">
-        <van-icon name="warning-o"/><text>书籍丢失，去</text><span bindtap="lostHandleBook" style="color: #ee0a24">确认</span>
+        <van-icon name="warning-o" /><text>书籍丢失，去</text><span bindtap="lostHandleBook" style="color: #ee0a24">确认</span>
       </view>
     </van-col>
   </van-row>
   <van-row style="margin: 12px" wx:if="{{ isBorrow == false && shareRecord.recordStatus ==  2}}">
     <van-col span="22" offset="1">
       <view class="view-center">
-        <van-icon name="warning-o"/><text>交易异常，</text><span bindtap="lostHandleBook" style="color: #ee0a24">书籍丢失</span><text>或</text><span bindtap="seriouslyOverdueHandleBook" style="color: #ee0a24">严重逾期归还</span>
+        <van-icon name="warning-o" /><text>交易异常，</text><span bindtap="lostHandleBook"
+          style="color: #ee0a24">书籍丢失</span><text>或</text><span bindtap="seriouslyOverdueHandleBook"
+          style="color: #ee0a24">严重逾期归还</span>
       </view>
     </van-col>
   </van-row>

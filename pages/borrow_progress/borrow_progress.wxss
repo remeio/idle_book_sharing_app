@@ -1,1 +1,12 @@
 /* pages/borrow_progress/borrow_progress.wxss */
+.countDownItem {
+  display: inline-block;
+  margin-right: 5px;
+  padding-left: 2px;
+  padding-right: 2px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  background-color: #ee0a24;
+  border-radius: 2px;
+}

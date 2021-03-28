@@ -17,7 +17,14 @@ Page({
     isBorrow: null,
     steps: [
     ],
-    activeIndex: 0
+    activeIndex: 0,
+    countDownTime: 0,
+    countDownTimeData: {}
+  },
+  onCountDownTimeChange(e) {
+    this.setData({
+      countDownTimeData: e.detail
+    })
   },
   seriouslyOverdueHandleBook() {
     let me = this
@@ -246,6 +253,16 @@ Page({
           shareLogList: dts.shareLogDTOList
         })
         me.getSteps(me.data.shareRecord, me.data.shareLogList)
+        // 倒计时
+        if (me.data.shareRecord.recordStatus == 2) {
+          let log = me.data.shareLogList.filter(r => {
+            return r.shareRecordStatus == 2
+          })[0]
+          let times = me.data.shareRecord.bookMaxPeriod * 24 * 60 * 60 * 1000 - new Date().getTime() + new Date(log.gmtCreate).getTime()
+          me.setData({
+            countDownTime: times > 0 ? times : 0
+          })
+        }
       }
     })
   },
