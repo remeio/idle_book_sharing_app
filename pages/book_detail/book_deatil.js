@@ -18,6 +18,7 @@ Page({
     bookDeposit: 0,
     userFullName: "",
     schoolName: "",
+    bookStatus: 0,
     // 状态
     borrowLoading: false
   },
@@ -43,7 +44,8 @@ Page({
           bookMaxPeriod: bookInfo.bookMaxPeriod,
           bookDeposit: bookInfo.bookDeposit,
           userFullName: bookInfo.userFullName,
-          schoolName: bookInfo.schoolName
+          schoolName: bookInfo.schoolName,
+          bookStatus: bookInfo.bookStatus
         })
       }
     })
