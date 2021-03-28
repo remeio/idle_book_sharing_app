@@ -1,6 +1,7 @@
 // components/share_componet/share/share.js
 import Dialog from '@vant/weapp/dist/dialog/dialog';
 import Toast from '@vant/weapp/dist/toast/toast';
+import {getDateStrFormDate} from '../../../utils/util'
 var globalData = getApp().globalData;
 Component({
   /**
@@ -125,9 +126,7 @@ Component({
           }
           let bookList = dts.bookDTOList;
           bookList.forEach(r => {
-            let date = new Date(r.gmtCreate)
-            var result = date.getFullYear() + '-' + ((date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ' + (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':' + (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
-            r.gmtCreateStr = result
+            r.gmtCreateStr = getDateStrFormDate(new Date(r.gmtCreate))
           })
           me.setData({
             bookList: bookList

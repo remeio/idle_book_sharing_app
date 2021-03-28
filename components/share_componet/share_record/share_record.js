@@ -1,4 +1,5 @@
 // components/share_componet/share_record/share_record.js
+import {getDateStrFormDate} from '../../../utils/util'
 var globalData = getApp().globalData;
 Component({
   /**
@@ -21,7 +22,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    toBorrowProgress() {
+    toBorrowProgress(e) {
+      wx.navigateTo({
+        url: '/pages/borrow_progress/borrow_progress?shareRecordId=' + e.currentTarget.dataset.id + '&operatorType=' + e.currentTarget.dataset.type,
+      })
     },
     getShareRecord() {
       let me = this
@@ -42,9 +46,7 @@ Component({
           }
           let shareRecordList = dts.shareRecordDTOList;
           shareRecordList.forEach(r => {
-            let date = new Date(r.gmtCreate)
-            var result = date.getFullYear() + '-' + ((date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ' + (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':' + (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
-            r.gmtCreateStr = result
+            r.gmtCreateStr = getDateStrFormDate(new Date(r.gmtCreate))
           })
           me.setData({
             shareRecordList: shareRecordList
