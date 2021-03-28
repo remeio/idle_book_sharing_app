@@ -69,6 +69,11 @@ Page({
           return;
         }
         Toast("借阅成功")
+        setTimeout(function() {
+          wx.navigateBack({
+            delta: 0,
+          })
+        }, 1000)
       },
       complete: function() {
         me.setData({borrowLoading: false})
