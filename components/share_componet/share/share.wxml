@@ -1,6 +1,7 @@
 <!--components/share_componet/share/share.wxml-->
 <van-row>
   <van-col span="24">
+    <van-empty description="暂时没有共享书籍~" wx:if="{{ bookList.length == 0 }}"/>
     <van-card wx:for="{{ bookList }}" wx:key="id" price="{{ item.bookDeposit }}.00" currency="押金:"
       desc="{{ item.gmtCreateStr }}" title="{{ item.bookName }}" thumb="{{ item.bookImageUrl }}" num="1">
       <van-tag mark type="primary" wx:if="{{ item.bookStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">空闲
