@@ -19,11 +19,11 @@ Component({
    */
   methods: {
     onTabsClick(e) {
-      if (e.detail.index == 1) {
+      if (e.detail.index == 0) {
         this.data.subComponents.srBorrow.getShareRecord()
-      } else if (e.detail.index == 2) {
+      } else if (e.detail.index == 1) {
         this.data.subComponents.srLend.getShareRecord()
-      } else if (e.detail.index == 3) {
+      } else if (e.detail.index == 2) {
         this.data.subComponents.share.getBookList()
       }
     }
