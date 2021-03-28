@@ -3,6 +3,20 @@
     <van-col span="24">
       <view class="view-center">
         <van-image fit="heightFix" height="140" src="/resources/images/sapiens.png" />
+        <van-tag mark type="primary" wx:if="{{ shareRecord.recordStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">
+        已下单</van-tag>
+      <van-tag mark type="danger" wx:if="{{ shareRecord.recordStatus == '2' }}" slot="tag" custom-class="custom-tag-of-card">借阅中
+      </van-tag>
+      <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '3' }}" slot="tag" custom-class="custom-tag-of-card">
+        已归还</van-tag>
+      <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '4' }}" slot="tag" custom-class="custom-tag-of-card">
+        逾期归还</van-tag>
+      <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '5' }}" slot="tag" custom-class="custom-tag-of-card">
+        已取消</van-tag>
+      <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '6' }}" slot="tag" custom-class="custom-tag-of-card">
+        书籍丢失</van-tag>
+      <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '7' }}" slot="tag" custom-class="custom-tag-of-card">
+        严重超时</van-tag>
       </view>
     </van-col>
   </van-row>
