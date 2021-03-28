@@ -26,9 +26,9 @@ Component({
     getShareRecord() {
       let me = this
       wx.request({
-        url: globalData.serverUrl 
-        + (me.data.borrowOrLend == "borrow" 
-        ? '/shareRecord/getShareRecordListByBorrowUserId' : '/shareRecord/getShareRecordListByShareUserId'),
+        url: globalData.serverUrl
+          + (me.data.borrowOrLend == "borrow"
+            ? '/shareRecord/getShareRecordListByBorrowUserId' : '/shareRecord/getShareRecordListByShareUserId'),
         data: {},
         method: 'POST',
         header: {
@@ -41,6 +41,11 @@ Component({
             return;
           }
           let shareRecordList = dts.shareRecordDTOList;
+          shareRecordList.forEach(r => {
+            let date = new Date(r.gmtCreate)
+            var result = date.getFullYear() + '-' + ((date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ' + (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':' + (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+            r.gmtCreateStr = result
+          })
           me.setData({
             shareRecordList: shareRecordList
           })
@@ -56,7 +61,7 @@ Component({
 
   lifetimes: {
     // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-    attached: function () { 
+    attached: function () {
       this.getShareRecord()
     },
     moved: function () { },

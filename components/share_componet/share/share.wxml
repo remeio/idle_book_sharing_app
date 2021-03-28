@@ -2,7 +2,7 @@
 <van-row>
   <van-col span="24">
     <van-card wx:for="{{ bookList }}" wx:key="id" price="{{ item.bookDeposit }}.00" currency="押金:"
-      desc="{{ item.bookDescription }}" title="{{ item.bookName }}" thumb="{{ item.bookImageUrl }}" num="1">
+      desc="{{ item.gmtCreateStr }}" title="{{ item.bookName }}" thumb="{{ item.bookImageUrl }}" num="1">
       <van-tag mark type="primary" wx:if="{{ item.bookStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">空闲
       </van-tag>
       <van-tag mark type="success" wx:if="{{ item.bookStatus == '2' }}" slot="tag" custom-class="custom-tag-of-card">受理中
