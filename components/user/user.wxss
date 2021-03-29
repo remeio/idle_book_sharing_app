@@ -1,1 +1,36 @@
 /* components/user/user.wxss */
+.view-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.row-round-block {
+  position: relative;
+  display: flex;
+  margin: 12px 12px 12px 12px;
+  padding-left: 20px;
+  color: #323233;
+  font-weight: 500;
+  font-size: 14px;
+  background: #f7f8fa;
+  border-radius: 99px;
+  transition: background 0.3s;
+  line-height: 40px;
+}
+
+.row-round-icon {
+  position: absolute !important;
+  top: 50%;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  color: rgb(182, 195, 210);
+  font-weight: 900 !important;
+}
+
+.row-round-title {
+  margin: 4px 4px 4px 4px;
+  color: rgba(69, 90, 100, 0.6);
+  font-size: 14px;
+}

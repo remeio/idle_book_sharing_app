@@ -1,6 +1,7 @@
 <!-- 页面容器 -->
-<view wx:if="{{ active == 1 }}">
-  <book-catalog></book-catalog>
+<view wx:if="{{ active == 1 || active == 4 }}">
+  <book-catalog wx:if="{{ active == 1 }}"></book-catalog>
+  <user wx:if="{{ active == 4 }}"></user>
   <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#FD9163">
     <van-tabbar-item icon="wap-home-o">首页</van-tabbar-item>
     <van-tabbar-item icon="smile-comment-o">分类</van-tabbar-item>
@@ -9,11 +10,10 @@
     <van-tabbar-item icon="user-o">我的</van-tabbar-item>
   </van-tabbar>
 </view>
-<view class="page" wx:if="{{ active != 1 }}">
+<view class="page" wx:if="{{ active != 1 && active != 4 }}">
   <home wx:if="{{ active == 0 }}"></home>
   <bookcase wx:if="{{ active == 2 }}"></bookcase>
   <share wx:if="{{ active == 3 }}"></share>
-  <user wx:if="{{ active == 4 }}"></user>
   <van-toast id="van-toast" />
   <van-dialog id="van-dialog" />
   <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#FD9163">
