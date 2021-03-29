@@ -4,9 +4,19 @@
       <van-image fit="heightFix" height="100" src="/resources/images/sapiens.png" />
     </view>
   </van-col>
+  <van-row>
+    <van-col span="22" offset="1">
+      <van-grid column-num="4" border="{{ false }}" icon-size="24px" direction="horizontal">
+        <van-grid-item icon="/resources/images/can_use_deposit.png" text="{{userInfo.canUseDeposit}}.00" />
+        <van-grid-item icon="/resources/images/occupy_deposit.png" text="{{userInfo.occupyDeposit}}.00" />
+        <van-grid-item icon="/resources/images/make_up_deposit.png" text="{{userInfo.makeUpDeposit}}.00" />
+        <van-grid-item icon="/resources/images/loss_deposit.png" text="{{userInfo.lossDeposit}}.00" />
+      </van-grid>
+    </van-col>
+  </van-row>
   <van-row class="row-round-block">
     <van-col span="24">
-      <view class="row-round-title">我的押金</view>
+      <view class="row-round-title">押金记录</view>
       <van-icon name="arrow" class="row-round-icon"></van-icon>
     </van-col>
   </van-row>
