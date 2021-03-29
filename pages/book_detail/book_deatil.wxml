@@ -23,11 +23,12 @@
   <van-row>
     <van-col span="24">
       <van-goods-action>
-        <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
+        <!-- <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" /> -->
         <van-goods-action-icon icon="send-gift-o" text="书箱" bind:click="onClickIcon" />
-        <van-goods-action-button text="加入书箱" type="warning" bind:click="onClickButton" />
-        <van-goods-action-button text="立即借阅" bind:click="borrowBook" wx:if="{{ !borrowLoading && bookStatus == 1 }}" disabled="{{  }}"/>
-        <van-goods-action-button loading wx:if="{{ borrowLoading && bookStatus == 1 }}"/>
+        <van-goods-action-button text="加入书箱" type="warning" bind:click="addToBookcase" wx:if="{{ !addLoading }}" />
+        <van-goods-action-button type="warning" loading wx:if="{{ addLoading }}" />
+        <van-goods-action-button text="立即借阅" bind:click="borrowBook" wx:if="{{ !borrowLoading && bookStatus == 1 }}" />
+        <van-goods-action-button loading wx:if="{{ borrowLoading && bookStatus == 1 }}" />
       </van-goods-action>
     </van-col>
   </van-row>

@@ -20,7 +20,8 @@ Page({
     schoolName: "",
     bookStatus: 0,
     // 状态
-    borrowLoading: false
+    borrowLoading: false,
+    addLoading: false
   },
 
   getBookInfo() {
@@ -50,10 +51,32 @@ Page({
       }
     })
   },
-
+  addToBookcase() {
+    let me = this
+    me.setData({ addLoading: true })
+    wx.request({
+      url: globalData.serverUrl + '/bookcase/addToBookcase',
+      data: { bookId: parseInt(me.data.bookId) },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/json",
+        'authorization': globalData.token
+      },
+      success: function (res) {
+        let dts = res.data
+        if (!dts.success) {
+          Toast("添加失败，" + dts.errorInfo)
+          return;
+        }
+        Toast("添加成功")
+      }, complete: function () {
+        me.setData({ addLoading: false })
+      }
+    })
+  },
   borrowBook() {
     let me = this
-    me.setData({borrowLoading: true})
+    me.setData({ borrowLoading: true })
     wx.request({
       url: globalData.serverUrl + '/book/borrowBook',
       data: { bookId: parseInt(me.data.bookId) },
@@ -69,14 +92,14 @@ Page({
           return;
         }
         Toast("借阅成功")
-        setTimeout(function() {
+        setTimeout(function () {
           wx.navigateBack({
             delta: 0,
           })
         }, 1000)
       },
-      complete: function() {
-        me.setData({borrowLoading: false})
+      complete: function () {
+        me.setData({ borrowLoading: false })
       }
     })
   },
