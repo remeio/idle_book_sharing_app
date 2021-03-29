@@ -1,2 +1,28 @@
-<!--components/bookcase/bookcase.wxml-->
-<text>components/bookcase/bookcase.wxml</text>
+<van-row>
+  <van-col span="24">
+    <van-empty description="书箱里空空如也~" wx:if="{{ bookcaseList.length == 0 }}" />
+    <van-card wx:for="{{ bookcaseList }}" wx:key="id" price="{{ item.bookDTO.bookDeposit }}.00" currency="押金:"
+    desc="{{ item.gmtCreateStr }}" title="{{ item.bookDTO.bookName }}" thumb="{{ item.bookDTO.bookImageUrl }}">
+      <van-tag mark type="primary" wx:if="{{ item.bookDTO.bookStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">空闲
+      </van-tag>
+      <van-tag mark type="success" wx:if="{{ item.bookDTO.bookStatus == '2' }}" slot="tag" custom-class="custom-tag-of-card">受理中
+      </van-tag>
+      <van-tag mark type="danger" wx:if="{{ item.bookDTO.bookStatus == '3' }}" slot="tag" custom-class="custom-tag-of-card">异常
+      </van-tag>
+      <van-tag mark type="warning" wx:if="{{ item.bookDTO.bookStatus == '4' }}" slot="tag" custom-class="custom-tag-of-card">已下架
+      </van-tag>
+      <view slot="tags">
+        <van-tag type="danger" style="margin-left: 4px">T+{{ item.bookDTO.bookMaxPeriod }}</van-tag>
+        <van-tag plain type="primary" style="margin-left: 4px" wx:if="{{ item.bookDTO.bookDeposit == 0}}">免押金</van-tag>
+      </view>
+      <view slot="footer">
+        <van-button size="mini" round bind:tap="removeBook" data-id="{{ item.id }}">移除</van-button>
+        <van-button size="mini" round style="margin-left: 4px" bind:tap="toBookDetail" data-id="{{ item.id }}" type="danger" data-id="{{ item.bookId }}">查看书籍
+        </van-button>
+        <van-divider />
+      </view>
+    </van-card>
+  </van-col>
+  <van-dialog id="van-dialog" />
+  <van-toast id="van-toast" />
+</van-row>

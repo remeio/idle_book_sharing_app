@@ -1,1 +1,6 @@
 /* components/bookcase/bookcase.wxss */
+.custom-tag-of-card {
+  position: absolute !important;
+  top: 2px;
+  left: 0
+}
