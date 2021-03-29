@@ -20,7 +20,7 @@
       <van-button round type="danger" block bind:click="payDeposit" wx:if="{{ !loadingPay }}">缴纳</van-button>
     </van-col>
     <van-col span="10" offset="2">
-      <van-button round type="success" block loading disabled loading-text="提现中..." wx:if="{{ loadingDraw }}">提现</van-button>
+      <van-button round type="primary" block loading disabled loading-text="提现中..." wx:if="{{ loadingDraw }}">提现</van-button>
       <van-button round type="primary" block bind:click="drawDeposit" wx:if="{{ !loadingDraw }}">提现</van-button>
     </van-col>
   </van-row>
