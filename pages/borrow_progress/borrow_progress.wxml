@@ -2,7 +2,7 @@
   <van-row>
     <van-col span="24">
       <view class="view-center">
-        <van-image fit="heightFix" height="100" src="/resources/images/sapiens.png" />
+        <van-image fit="heightFix" height="100" src="{{ shareRecord.bookImageUrl }}" />
         <van-tag mark type="primary" wx:if="{{ shareRecord.recordStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">
         已下单</van-tag>
       <van-tag mark type="danger" wx:if="{{ shareRecord.recordStatus == '2' }}" slot="tag" custom-class="custom-tag-of-card">借阅中
