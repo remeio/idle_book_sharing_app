@@ -7,7 +7,8 @@
     "pages/book_detail/book_deatil",
     "pages/borrow_progress/borrow_progress",
     "pages/message/message",
-    "pages/sign_up/sign_up"
+    "pages/sign_up/sign_up",
+    "pages/user_detail/user_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,19 @@
+<view>
+  <van-row>
+    <van-col span="24">
+      <view class="view-center">
+        <van-image fit="heightFix" height="140" src="/resources/images/sapiens.png" />
+      </view>
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="24">
+      <van-cell-group>
+        <van-cell title="手机号码：" value="{{ userInfo.userPhone }}" />
+        <van-cell title="用户姓名：" value="{{ userInfo.userName }}" />
+        <van-cell title="学校名称：" value="{{ userInfo.shcoolName }}" />
+        <van-cell title="注册时间：" value="{{ userInfo.gmtCreate }}" />
+      </van-cell-group>
+    </van-col>
+  </van-row>
+</view>

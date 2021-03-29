@@ -16,29 +16,29 @@
   </van-row>
   <van-row class="row-round-block">
     <van-col span="24">
-      <view class="row-round-title">押金记录</view>
+      <view class="row-round-title" ontap="toDepositDetail">押金记录</view>
       <van-icon name="arrow" class="row-round-icon"></van-icon>
     </van-col>
   </van-row>
-  <van-row class="row-round-block">
+  <van-row class="row-round-block" ontap="toUserDetail">
     <van-col span="24">
       <view class="row-round-title">个人信息</view>
       <van-icon name="arrow" class="row-round-icon"></van-icon>
     </van-col>
   </van-row>
-  <van-row class="row-round-block">
+  <van-row class="row-round-block" ontap="toResetPassword">
     <van-col span="24">
       <view class="row-round-title">修改密码</view>
       <van-icon name="arrow" class="row-round-icon"></van-icon>
     </van-col>
   </van-row>
-  <van-row class="row-round-block">
+  <van-row class="row-round-block" ontap="toServiceRule">
     <van-col span="24">
       <view class="row-round-title">服务条款</view>
       <van-icon name="arrow" class="row-round-icon"></van-icon>
     </van-col>
   </van-row>
-  <van-row class="row-round-block">
+  <van-row class="row-round-block" ontap="toSignOut">
     <van-col span="24">
       <view class="row-round-title">退出登录</view>
       <van-icon name="arrow" class="row-round-icon"></van-icon>

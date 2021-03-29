@@ -19,6 +19,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    toUserDetail() {
+      wx.navigateTo({
+        url: '/pages/user_detail/user_detail',
+      })
+    },
     getUserInfo() {
       let me = this
       wx.request({
