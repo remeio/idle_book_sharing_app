@@ -16,9 +16,9 @@
       </van-grid>
     </van-col>
   </van-row>
-  <van-row class="row-round-block">
+  <van-row class="row-round-block"  ontap="toDepositDetail">
     <van-col span="24">
-      <view class="row-round-title" ontap="toDepositDetail">押金记录</view>
+      <view class="row-round-title">押金记录</view>
       <van-icon name="arrow" class="row-round-icon"></van-icon>
     </van-col>
   </van-row>

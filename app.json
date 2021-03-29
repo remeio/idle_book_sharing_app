@@ -8,7 +8,8 @@
     "pages/borrow_progress/borrow_progress",
     "pages/message/message",
     "pages/sign_up/sign_up",
-    "pages/user_detail/user_detail"
+    "pages/user_detail/user_detail",
+    "pages/deposit_detail/deposit_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

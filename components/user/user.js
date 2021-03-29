@@ -21,7 +21,9 @@ Component({
    */
   methods: {
     toDepositDetail() {
-
+      wx.navigateTo({
+        url: '/pages/deposit_detail/deposit_detail',
+      })
     },
     toSignOut() {
       Dialog.confirm({
