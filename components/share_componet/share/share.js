@@ -152,7 +152,9 @@ Component({
 
   pageLifetimes: {
     // 组件所在页面的生命周期函数
-    show: function () { },
+    show: function () {
+      this.getBookList()
+     },
     hide: function () { },
     resize: function () { },
   }

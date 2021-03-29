@@ -39,6 +39,11 @@ Component({
         })
       })
     },
+    toDepositOperate() {
+      wx.navigateTo({
+        url: '/pages/deposit_operate/deposit_operate',
+      })
+    },
     toResetPassword() {
       wx.navigateTo({
         url: '/pages/reset_password/reset_password',
@@ -84,4 +89,9 @@ Component({
     moved: function () { },
     detached: function () { },
   },
+  pageLifetimes: {
+    show: function() {
+      this.getUserInfo()
+    }
+  }
 })

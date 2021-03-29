@@ -69,4 +69,9 @@ Component({
     moved: function () { },
     detached: function () { },
   },
+  pageLifetimes: {
+    show: function() {
+      this.getShareRecord()
+    }
+  }
 })

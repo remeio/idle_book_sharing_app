@@ -10,7 +10,8 @@
     "pages/sign_up/sign_up",
     "pages/user_detail/user_detail",
     "pages/deposit_detail/deposit_detail",
-    "pages/reset_password/reset_password"
+    "pages/reset_password/reset_password",
+    "pages/deposit_operate/deposit_operate"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -11,7 +11,7 @@ Page({
     userNewPassword: '',
     loading: false
   },
-  login() {
+  resetPassword() {
     let me = this;
     me.setData({ loading: true })
     wx.request({

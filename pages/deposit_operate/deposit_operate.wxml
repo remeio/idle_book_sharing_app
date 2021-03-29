@@ -1,0 +1,28 @@
+<view>
+  <van-row>
+    <van-col span="24">
+      <view class="view-center">
+        <van-image fit="heightFix" height="140" src="/resources/images/sapiens.png" />
+      </view>
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="24">
+      <van-cell-group>
+        <van-field model:value="{{ amount }}" label="金额" placeholder="请输入金额" left-icon="balance-o" required
+          type="number" />
+      </van-cell-group>
+    </van-col>
+  </van-row>
+  <van-row style="margin: 12px">
+    <van-col span="10" offset="1">
+      <van-button round type="danger" block loading disabled loading-text="缴纳中..." wx:if="{{ loadingPay }}">缴纳中</van-button>
+      <van-button round type="danger" block bind:click="payDeposit" wx:if="{{ !loadingPay }}">缴纳</van-button>
+    </van-col>
+    <van-col span="10" offset="2">
+      <van-button round type="success" block loading disabled loading-text="提现中..." wx:if="{{ loadingDraw }}">提现</van-button>
+      <van-button round type="primary" block bind:click="drawDeposit" wx:if="{{ !loadingDraw }}">提现</van-button>
+    </van-col>
+  </van-row>
+  <van-toast id="van-toast" />
+</view>
