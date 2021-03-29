@@ -1,4 +1,5 @@
 // components/user/user.js
+import Dialog from "@vant/weapp/dist/dialog/dialog";
 var globalData = getApp().globalData;
 Component({
   /**
@@ -19,6 +20,29 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    toDepositDetail() {
+
+    },
+    toSignOut() {
+      Dialog.confirm({
+        context: this,
+        title: '注销登录',
+        message: '您确定要退出登录吗？',
+        confirmButtonText: '注销'
+      }).then(() => {
+        globalData.token = ''
+        globalData.userId = ''
+        wx.redirectTo({
+          url: '/pages/sign_in/sign_in',
+        })
+      })
+    },
+    toResetPassword() {
+      
+    },
+    toServiceRule() {
+
+    },
     toUserDetail() {
       wx.navigateTo({
         url: '/pages/user_detail/user_detail',

@@ -33,7 +33,7 @@ Page({
         globalData.userId = dts.userId
         Toast("登录成功")
         setTimeout(function() {
-          wx.reLaunch({
+          wx.redirectTo({
             url: '/pages/index/index',
           })
         }, 1000)

@@ -1,9 +1,11 @@
-<van-row>
-  <van-col span="24">
-    <view class="view-center">
-      <van-image fit="heightFix" height="100" src="/resources/images/sapiens.png" />
-    </view>
-  </van-col>
+<view>
+  <van-row>
+    <van-col span="24">
+      <view class="view-center">
+        <van-image fit="heightFix" height="100" src="/resources/images/sapiens.png" />
+      </view>
+    </van-col>
+  </van-row>
   <van-row>
     <van-col span="22" offset="1">
       <van-grid column-num="4" border="{{ false }}" icon-size="24px" direction="horizontal">
@@ -44,6 +46,6 @@
       <van-icon name="arrow" class="row-round-icon"></van-icon>
     </van-col>
   </van-row>
-  <van-toast id="van-toast" />
-  <van-dialog id="van-dialog" />
-</van-row>
+</view>
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
