@@ -40,7 +40,9 @@ Component({
       })
     },
     toResetPassword() {
-      
+      wx.navigateTo({
+        url: '/pages/reset_password/reset_password',
+      })
     },
     toServiceRule() {
 
