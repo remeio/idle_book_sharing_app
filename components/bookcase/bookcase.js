@@ -26,6 +26,7 @@ Component({
       let me = this
       let bookcaseId = e.currentTarget.dataset.id
       Dialog.confirm({
+        context: this,
         title: '移除确认',
         message: '您确认要从书箱中移除该书籍吗？',
         confirmButtonText: '确认移除'

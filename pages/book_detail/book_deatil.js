@@ -21,9 +21,19 @@ Page({
     bookStatus: 0,
     // 状态
     borrowLoading: false,
-    addLoading: false
+    addLoading: false,
+    bookcaseShow: false
   },
-
+  onCloseBookcase() {
+    this.setData({
+      bookcaseShow: false
+    })
+  },
+  showPopupBookcase() {
+    this.setData({
+      bookcaseShow: true
+    })
+  },
   getBookInfo() {
     let me = this
     wx.request({
