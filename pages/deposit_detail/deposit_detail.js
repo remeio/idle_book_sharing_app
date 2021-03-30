@@ -26,9 +26,12 @@ Page({
         }
         let depositDTOList = dts.depositDTOList
         depositDTOList.forEach(r => {
+          let typeSign = ['+', '-', '-', '+', '-', '+']
           let typeDict = ['缴纳押金', '提取押金', '占用押金', '释放押金', '支付损失', '所得补偿']
           r.depositOperateTypeName = typeDict[r.depositOperateType - 1]
           r.gmtCreateStr = getDateStrFormDate(new Date(r.gmtCreate))
+          r.depositAmountStr = typeSign[r.depositOperateType - 1] + "￥" + r.depositAmount + ".00"
+          r.color = (r.depositAmountStr.indexOf("+") != -1) ? "#342DEC" : "#b793e6"
         })
         me.setData({
           depositList: depositDTOList

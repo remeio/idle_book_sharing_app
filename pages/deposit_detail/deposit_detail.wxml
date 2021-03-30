@@ -4,8 +4,9 @@
     <van-col span="24">
       <van-empty description="暂时没有押金记录~" wx:if="{{ depositList.length == 0 }}"/>
       <van-cell-group>
-        <van-cell use-label-slot wx:for="{{ depositList }}" wx:key="{{ item.id }}" value="￥{{ item.depositAmount }}.00"
+        <van-cell use-label-slot wx:for="{{ depositList }}" wx:key="{{ item.id }}"
           border="{{ true }}">
+          <span style="color: {{item.color}}">{{ item.depositAmountStr}}</span>
           <view slot="title">
             <van-icon wx:if="{{ item.depositOperateType == 1}}" name="/resources/images/can_use_deposit.png" />
             <van-icon wx:if="{{ item.depositOperateType == 2}}" name="/resources/images/draw_deposit.png" />

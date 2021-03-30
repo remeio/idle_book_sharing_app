@@ -17,7 +17,7 @@
   </van-row>
   <van-row style="margin: 12px">
     <van-col span="22" offset="1">
-      <van-button round type="danger" color="#342DEC" block loading disabled
+      <van-button round type="danger" color="#9FC3FD" block loading disabled
         loading-text="登录中..." wx:if="{{ loading }}">登录</van-button>
       <van-button round type="danger" color="linear-gradient(to bottom right, #342DEC, #9FC3FD)" custom-class="button-primary"
         block bind:click="login" wx:if="{{ !loading }}">登录</van-button>
