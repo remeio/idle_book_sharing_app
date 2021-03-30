@@ -1,7 +1,7 @@
 <!--components/share_componet/share/share.wxml-->
 <van-row>
   <van-col span="24">
-    <van-empty description="暂时没有共享书籍~" wx:if="{{ bookList.length == 0 }}"/>
+    <van-empty description="暂时没有共享书籍~" wx:if="{{ bookList.length == 0 }}" />
     <van-card wx:for="{{ bookList }}" wx:key="id" price="{{ item.bookDeposit }}.00" currency="押金:"
       desc="{{ item.gmtCreateStr }}" title="{{ item.bookName }}" thumb="{{ item.bookImageUrl }}" num="1">
       <van-tag mark type="primary" wx:if="{{ item.bookStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">空闲
@@ -13,18 +13,19 @@
       <van-tag mark type="warning" wx:if="{{ item.bookStatus == '4' }}" slot="tag" custom-class="custom-tag-of-card">已下架
       </van-tag>
       <view slot="tags">
-        <van-tag type="primary">{{ item.bookCatalogName }}</van-tag>
-        <van-tag type="danger" style="margin-left: 4px">T+{{ item.bookMaxPeriod }}</van-tag>
-        <van-tag plain type="primary" style="margin-left: 4px" wx:if="{{ item.bookDeposit == 0}}">免押金</van-tag>
+        <van-tag round color="#342DEC" type="danger">T+{{ item.bookMaxPeriod }}</van-tag>
+        <van-tag round type="primary" color="#b793e6" style="margin-left: 4px">{{ item.bookCatalogName }}</van-tag>
+        <van-tag round color="#342DEC" plain type="primary" style="margin-left: 4px" wx:if="{{ item.bookDeposit == 0}}">
+          免押金</van-tag>
       </view>
       <view slot="footer">
         <van-button size="mini" round bind:tap="deleteBook" data-id="{{ item.id }}">删除</van-button>
         <van-button size="mini" round style="margin-left: 4px" bind:tap="toBookDetail" data-id="{{ item.id }}">详情
         </van-button>
         <van-button size="mini" type="danger" round style="margin-left: 4px" wx:if="{{ item.bookStatus == '4' }}"
-          bind:tap="onShelfBook" data-id="{{ item.id }}">上架</van-button>
+          bind:tap="onShelfBook" data-id="{{ item.id }}" color="#342DEC">上架</van-button>
         <van-button size="mini" type="danger" round style="margin-left: 4px" wx:if="{{ item.bookStatus != '4' }}"
-          bind:tap="offShelfBook" data-id="{{ item.id }}">下架</van-button>
+          bind:tap="offShelfBook" data-id="{{ item.id }}" color="#342DEC">下架</van-button>
         <van-divider />
       </view>
     </van-card>

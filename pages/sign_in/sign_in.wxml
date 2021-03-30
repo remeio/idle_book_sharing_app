@@ -17,14 +17,16 @@
   </van-row>
   <van-row style="margin: 12px">
     <van-col span="22" offset="1">
-      <van-button round type="danger" block loading disabled loading-text="登录中..." wx:if="{{ loading }}">登录</van-button>
-      <van-button round type="danger" block bind:click="login" wx:if="{{ !loading }}">登录</van-button>
+      <van-button round type="danger" color="#342DEC" block loading disabled
+        loading-text="登录中..." wx:if="{{ loading }}">登录</van-button>
+      <van-button round type="danger" color="linear-gradient(to bottom right, #342DEC, #9FC3FD)" custom-class="button-primary"
+        block bind:click="login" wx:if="{{ !loading }}">登录</van-button>
     </van-col>
   </van-row>
   <van-row style="margin: 12px">
     <van-col span="22" offset="1">
       <view class="view-center">
-        <text>没有账号，去</text><span bindtap="toSignUp" style="color: #ee0a24">注册</span>
+        <text>没有账号，去</text><span bindtap="toSignUp" style="color: #b793e6">注册</span>
       </view>
     </van-col>
   </van-row>

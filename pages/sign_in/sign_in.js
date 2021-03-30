@@ -7,8 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userPhone: "",
-    userPassword: "",
+    userPhone: "17839741231",
+    userPassword: "123",
     loading: false
   },
   toSignUp() {
