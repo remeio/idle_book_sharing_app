@@ -14,7 +14,7 @@
       </van-tag>
       <view slot="tags">
         <van-tag round color="#342DEC" type="danger">T+{{ item.bookMaxPeriod }}</van-tag>
-        <van-tag round type="primary" color="#b793e6" style="margin-left: 4px">{{ item.bookCatalogName }}</van-tag>
+        <van-tag round plain type="primary" color="#b793e6" style="margin-left: 4px">{{ item.bookCatalogName }}</van-tag>
         <van-tag round color="#342DEC" plain type="primary" style="margin-left: 4px" wx:if="{{ item.bookDeposit == 0}}">
           免押金</van-tag>
       </view>
