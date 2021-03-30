@@ -2,12 +2,12 @@
 <view wx:if="{{ active == 1 || active == 4 }}">
   <book-catalog wx:if="{{ active == 1 }}"></book-catalog>
   <user wx:if="{{ active == 4 }}"></user>
-  <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#FD9163">
-    <van-tabbar-item icon="wap-home-o">首页</van-tabbar-item>
-    <van-tabbar-item icon="smile-comment-o">分类</van-tabbar-item>
-    <van-tabbar-item icon="send-gift-o">书箱</van-tabbar-item>
-    <van-tabbar-item icon="todo-list-o">共享</van-tabbar-item>
-    <van-tabbar-item icon="user-o">我的</van-tabbar-item>
+  <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#FD9163" placeholder="{{ true }}">
+    <van-tabbar-item wx:for="{{ icons }}">
+      {{ item.title }}
+      <van-icon name="{{ item.normal }}" slot="icon" />
+      <van-icon name="{{ item.active }}" slot="icon-active" />
+    </van-tabbar-item>
   </van-tabbar>
 </view>
 <view class="page" wx:if="{{ active != 1 && active != 4 }}">
@@ -16,11 +16,11 @@
   <share wx:if="{{ active == 3 }}"></share>
   <van-toast id="van-toast" />
   <van-dialog id="van-dialog" />
-  <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#FD9163">
-    <van-tabbar-item icon="wap-home-o">首页</van-tabbar-item>
-    <van-tabbar-item icon="smile-comment-o">分类</van-tabbar-item>
-    <van-tabbar-item icon="send-gift-o">书箱</van-tabbar-item>
-    <van-tabbar-item icon="todo-list-o">共享</van-tabbar-item>
-    <van-tabbar-item icon="user-o">我的</van-tabbar-item>
+  <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#FD9163" placeholder="{{ true }}">
+    <van-tabbar-item wx:for="{{ icons }}">
+      {{ item.title }}
+      <van-icon name="{{ item.normal }}" slot="icon" />
+      <van-icon name="{{ item.active }}" slot="icon-active" />
+    </van-tabbar-item>
   </van-tabbar>
 </view>
