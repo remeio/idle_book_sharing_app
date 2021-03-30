@@ -11,6 +11,8 @@
       </van-tag>
       <van-tag mark type="warning" wx:if="{{ item.bookDTO.bookStatus == '4' }}" slot="tag" custom-class="custom-tag-of-card">已下架
       </van-tag>
+      <van-tag mark type="warning" wx:if="{{ item.bookDTO.bookStatus == '5' }}" slot="tag" custom-class="custom-tag-of-card">已删除
+      </van-tag>
       <view slot="tags">
         <van-tag type="danger" style="margin-left: 4px">T+{{ item.bookDTO.bookMaxPeriod }}</van-tag>
         <van-tag plain type="primary" style="margin-left: 4px" wx:if="{{ item.bookDTO.bookDeposit == 0}}">免押金</van-tag>

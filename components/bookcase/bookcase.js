@@ -8,7 +8,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    isDetail: {
+      type: Boolean,
+      value: false
+    }
   },
 
   /**
@@ -53,9 +56,16 @@ Component({
       })
     },
     toBookDetail(e) {
-      wx.navigateTo({
-        url: '/pages/book_detail/book_deatil?bookId=' + e.currentTarget.dataset.id,
-      })
+      if (this.data.isDetail == true) {
+        wx.redirectTo({
+          url: '/pages/book_detail/book_deatil?bookId=' + e.currentTarget.dataset.id,
+        })
+      }
+      else {
+        wx.navigateTo({
+          url: '/pages/book_detail/book_deatil?bookId=' + e.currentTarget.dataset.id,
+        })
+      }
     },
     getBookcaseList() {
       let me = this

@@ -35,7 +35,7 @@
   <van-toast id="van-toast" />
   <van-popup show="{{ bookcaseShow }}" bind:close="onCloseBookcase" round position="bottom" closeable custom-style="height: 40%">
     <scroll-view scroll-y="true" style="height: 100%">
-      <bookcase></bookcase>
+      <bookcase isDetail="{{ true }}"></bookcase>
     </scroll-view>
   </van-popup>
 </view>
