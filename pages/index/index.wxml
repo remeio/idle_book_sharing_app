@@ -2,7 +2,7 @@
 <view wx:if="{{ active == 1 || active == 4 }}">
   <book-catalog wx:if="{{ active == 1 }}"></book-catalog>
   <user wx:if="{{ active == 4 }}"></user>
-  <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#64EDAC" placeholder="{{ true }}">
+  <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#9FC3FD" placeholder="{{ true }}">
     <van-tabbar-item wx:for="{{ icons }}">
       {{ item.title }}
       <van-icon name="{{ item.normal }}" slot="icon" />
@@ -16,7 +16,7 @@
   <share wx:if="{{ active == 3 }}"></share>
   <van-toast id="van-toast" />
   <van-dialog id="van-dialog" />
-  <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#64EDAC" placeholder="{{ true }}">
+  <van-tabbar active="{{ active }}" bind:change="onChange" active-color="#9FC3FD" placeholder="{{ true }}">
     <van-tabbar-item wx:for="{{ icons }}">
       {{ item.title }}
       <van-icon name="{{ item.normal }}" slot="icon" />
