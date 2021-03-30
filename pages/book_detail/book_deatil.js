@@ -79,6 +79,9 @@ Page({
           return;
         }
         Toast("添加成功")
+        // 刷新
+        let bookcase = me.selectComponent('#bookcase');
+        bookcase.getBookcaseList()
       }, complete: function () {
         me.setData({ addLoading: false })
       }
