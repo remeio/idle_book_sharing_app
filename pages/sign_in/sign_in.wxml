@@ -2,7 +2,7 @@
   <van-row>
     <van-col span="24">
       <view class="view-center">
-        <van-image fit="heightFix" height="240" src="http://115.29.198.114:9090/system/login.png" />
+        <van-image fit="heightFix" height="140" src="http://115.29.198.114:9090/system/login.png" />
       </view>
     </van-col>
   </van-row>
