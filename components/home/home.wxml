@@ -97,6 +97,7 @@
       </van-col>
     </van-row>
   </van-col>
+  <van-toast id="van-toast" />
 </van-row>
 <view class="floatView" bind:tap="openUploadBookAction">
   <van-image width="48px" height="48px" fit="contain" round src="/resources/images/home/upload_book.svg" />

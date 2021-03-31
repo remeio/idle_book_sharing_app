@@ -1,4 +1,6 @@
 // components/home/home.js
+const { default: Toast } = require("@vant/weapp/dist/toast/toast");
+
 Component({
   /**
    * 组件的属性列表

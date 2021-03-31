@@ -40,12 +40,6 @@
       <van-icon name="arrow" class="row-round-icon"></van-icon>
     </van-col>
   </van-row>
-  <van-row class="row-round-block" ontap="toServiceRule">
-    <van-col span="24">
-      <view class="row-round-title">服务条款</view>
-      <van-icon name="arrow" class="row-round-icon"></van-icon>
-    </van-col>
-  </van-row>
   <van-row class="row-round-block" ontap="toSignOut">
     <van-col span="24">
       <view class="row-round-title">退出登录</view>
