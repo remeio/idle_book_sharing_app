@@ -25,10 +25,12 @@
                 </van-row>
                 <van-row>
                   <van-col span="16">
-                    <van-tag type="primary" round plain wx:if="{{ item.bookDeposit == 0 }}">免押金</van-tag>
-                    <van-tag type="warning" round plain wx:if="{{ item.bookDeposit != 0}}">押 {{ item.bookDeposit }}
+                    <van-tag type="danger" color="#ff8260" round>T+{{ item.bookMaxPeriod }}</van-tag>
+                    <van-tag type="warning" color="#ff4057" round plain wx:if="{{ item.bookDeposit != 0}}"
+                      style="margin-left: 4px">押:{{ item.bookDeposit }}
                     </van-tag>
-                    <van-tag type="danger" round plain style="margin-left: 2px">T+{{ item.bookMaxPeriod }}</van-tag>
+                    <van-tag type="primary" round plain wx:if="{{ item.bookDeposit == 0 }}" style="margin-left: 4px">免押金
+                    </van-tag>
                   </van-col>
                 </van-row>
               </van-col>
