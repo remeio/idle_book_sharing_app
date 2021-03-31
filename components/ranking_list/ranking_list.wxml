@@ -1,0 +1,31 @@
+<!--components/ranking_list/ranking_list.wxml-->
+<van-row>
+  <van-col span="24">
+    <view class="box1">
+      <van-row>
+        <van-col>
+          <view class="view-center">
+            <van-icon name="/resources/images/wg.png" size="24px" />
+            <text style="margin-left: 8px; font-size: 18px; color:#9D5B29;font-weight:bold">排行榜</text>
+            <text style="margin-left: 8px; font-size: 14px; color:#9D5B29;">最多共享书籍~</text>
+          </view>
+        </van-col>
+      </van-row>
+      <van-row custom-class="margin-for-row">
+        <view wx:for="{{ rankingList }}" wx:key="title">
+          <van-row>
+            <van-col span="20">
+              <van-tag color="#FE3E0C" wx:if="{{ index == 0}}">1</van-tag>
+              <van-tag color="#FE7C00" wx:if="{{ index == 1}}">2</van-tag>
+              <van-tag color="#FEB912" wx:if="{{ index == 2}}">3</van-tag>
+              <van-tag color="#D6B19A" wx:if="{{ index > 2 }}">{{ index + 1}}</van-tag>
+              <text style="margin-left: 12px; font-size: 16px">{{ item.title }}</text>
+            </van-col>
+            <van-col span="4" style="text-align: right; font-size: 16px">{{ item.value }}{{valueUnit}}</van-col>
+          </van-row>
+          <van-divider wx:if="{{ index != rankingList.length - 1 }}"></van-divider>
+        </view>
+      </van-row>
+    </view>
+  </van-col>
+</van-row>

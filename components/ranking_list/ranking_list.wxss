@@ -1,0 +1,17 @@
+/* components/ranking_list/ranking_list.wxss */
+.box1 {
+  background-color: #fff;
+  border-radius: 24rpx 24rpx 24rpx 24rpx;
+  padding: 12px;
+  margin: 12px;
+}
+
+.view-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.margin-for-row {
+  margin-top: 16px;
+}
