@@ -220,8 +220,8 @@ Page({
         let title = bookInfo.title
         let description = bookInfo.gist
         // 字符串过长进行截取
-        if (description.length > 20) {
-          description = description.substring(0, 20) + "..."
+        if (description.length > 100) {
+          description = description.substring(0, 100) + "..."
         }
         let imageUrl = bookInfo.img
         // 押金跟随定价，最大为 99

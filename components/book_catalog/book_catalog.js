@@ -62,7 +62,7 @@ Component({
       let bookCatalogId = this.data.bookCatalogIdList[this.data.bookCatalogIndex]
       wx.request({
         url: globalData.serverUrl + '/book/getBookListByBookCatalog',
-        data: {bookCatalogId: bookCatalogId},
+        data: { bookCatalogId: bookCatalogId },
         method: 'POST',
         header: {
           "Content-Type": "application/json",
@@ -74,6 +74,12 @@ Component({
             return;
           }
           let bookList = dts.bookDTOList;
+          bookList.forEach(r => {
+            // 字符串过长进行截取
+            if (r.bookName.length > 10) {
+              r.bookName = r.bookName.substring(0, 10) + "..."
+            }
+          })
           me.setData({
             bookList: bookList
           })
@@ -89,7 +95,7 @@ Component({
 
   lifetimes: {
     // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-    attached: function () { 
+    attached: function () {
       this.getBookCatalogList()
     },
     moved: function () { },
