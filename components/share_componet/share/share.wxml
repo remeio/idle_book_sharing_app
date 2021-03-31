@@ -13,8 +13,8 @@
       <van-tag mark type="warning" wx:if="{{ item.bookStatus == '4' }}" slot="tag" custom-class="custom-tag-of-card">已下架
       </van-tag>
       <view slot="tags">
-        <van-tag round color="#342DEC" type="danger">T+{{ item.bookMaxPeriod }}</van-tag>
-        <van-tag round plain type="primary" color="#b793e6" style="margin-left: 4px">{{ item.bookCatalogName }}</van-tag>
+        <van-tag round color="#ff8260" type="danger">T+{{ item.bookMaxPeriod }}</van-tag>
+        <van-tag round plain type="primary" color="#ff4057" style="margin-left: 4px">{{ item.bookCatalogName }}</van-tag>
         <van-tag round plain type="primary" style="margin-left: 4px" wx:if="{{ item.bookDeposit == 0}}">
           免押金</van-tag>
       </view>
@@ -23,9 +23,9 @@
         <van-button size="mini" round style="margin-left: 4px" bind:tap="toBookDetail" data-id="{{ item.id }}">详情
         </van-button>
         <van-button size="mini" type="danger" round style="margin-left: 4px" wx:if="{{ item.bookStatus == '4' }}"
-          bind:tap="onShelfBook" data-id="{{ item.id }}" color="#342DEC">上架</van-button>
+          bind:tap="onShelfBook" data-id="{{ item.id }}" color="#ff8260">上架</van-button>
         <van-button size="mini" type="danger" round style="margin-left: 4px" wx:if="{{ item.bookStatus != '4' }}"
-          bind:tap="offShelfBook" data-id="{{ item.id }}" color="#342DEC">下架</van-button>
+          bind:tap="offShelfBook" data-id="{{ item.id }}" color="#ff8260">下架</van-button>
         <van-divider />
       </view>
     </van-card>

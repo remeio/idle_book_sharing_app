@@ -31,7 +31,7 @@ Page({
           r.depositOperateTypeName = typeDict[r.depositOperateType - 1]
           r.gmtCreateStr = getDateStrFormDate(new Date(r.gmtCreate))
           r.depositAmountStr = typeSign[r.depositOperateType - 1] + "￥" + r.depositAmount + ".00"
-          r.color = (r.depositAmountStr.indexOf("+") != -1) ? "#342DEC" : "#b793e6"
+          r.color = (r.depositAmountStr.indexOf("+") != -1) ? "#ff8260" : "#ff4057"
         })
         me.setData({
           depositList: depositDTOList

@@ -25,4 +25,14 @@
 .special-tab-active {
   font-size: 1.05em !important;
 }
-/* #342DEC #b793e6 #eae7ed (#9FC3FD)*/
+/*
+主题色：#ff8260 （禁用：#FFE4C4	）
+次选：#ff4057
+#900048
+#240041 
+*/
+
+/*
+主题色：#342DEC （禁用：#9FC3FD	）
+次选：#b793e6
+ */

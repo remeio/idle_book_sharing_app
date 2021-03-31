@@ -14,12 +14,12 @@
       <van-tag mark type="warning" wx:if="{{ item.bookDTO.bookStatus == '5' }}" slot="tag" custom-class="custom-tag-of-card">已删除
       </van-tag>
       <view slot="tags">
-        <van-tag round color="#342DEC" type="danger" style="margin-left: 4px">T+{{ item.bookDTO.bookMaxPeriod }}</van-tag>
+        <van-tag round color="#ff8260" type="danger" style="margin-left: 4px">T+{{ item.bookDTO.bookMaxPeriod }}</van-tag>
         <van-tag round plain type="primary" style="margin-left: 4px" wx:if="{{ item.bookDTO.bookDeposit == 0}}">免押金</van-tag>
       </view>
       <view slot="footer">
         <van-button size="mini" round bind:tap="removeBook" data-id="{{ item.id }}">移除</van-button>
-        <van-button size="mini" color="#342DEC" round style="margin-left: 4px" bind:tap="toBookDetail" data-id="{{ item.id }}" type="danger" data-id="{{ item.bookId }}">查看书籍
+        <van-button size="mini" color="#ff8260" round style="margin-left: 4px" bind:tap="toBookDetail" data-id="{{ item.id }}" type="danger" data-id="{{ item.bookId }}">查看书籍
         </van-button>
         <van-divider />
       </view>

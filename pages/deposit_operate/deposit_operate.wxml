@@ -16,12 +16,12 @@
   </van-row>
   <van-row style="margin: 12px">
     <van-col span="10" offset="1">
-      <van-button round type="danger" color="#342DEC" block loading disabled loading-text="缴纳中..." wx:if="{{ loadingPay }}">缴纳中</van-button>
-      <van-button round type="danger" color="#342DEC" block bind:click="payDeposit" wx:if="{{ !loadingPay }}">缴纳</van-button>
+      <van-button round type="danger" color="#ff8260" block loading disabled loading-text="缴纳中..." wx:if="{{ loadingPay }}">缴纳中</van-button>
+      <van-button round type="danger" color="#ff8260" block bind:click="payDeposit" wx:if="{{ !loadingPay }}">缴纳</van-button>
     </van-col>
     <van-col span="10" offset="2">
-      <van-button round type="primary" color="#b793e6" block loading disabled loading-text="提现中..." wx:if="{{ loadingDraw }}">提现</van-button>
-      <van-button round type="primary" color="#b793e6"  block bind:click="drawDeposit" wx:if="{{ !loadingDraw }}">提现</van-button>
+      <van-button round type="primary" color="#ff4057" block loading disabled loading-text="提现中..." wx:if="{{ loadingDraw }}">提现</van-button>
+      <van-button round type="primary" color="#ff4057"  block bind:click="drawDeposit" wx:if="{{ !loadingDraw }}">提现</van-button>
     </van-col>
   </van-row>
   <van-toast id="van-toast" />
