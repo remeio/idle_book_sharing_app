@@ -6,6 +6,11 @@
   bottom: 60px;
   right: 18px;
 }
+.view-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .book-content {
   border-radius: 24rpx 24rpx 24rpx 24rpx;

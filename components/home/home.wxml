@@ -3,7 +3,7 @@
     <!-- 搜索框 -->
     <van-search value="{{ value }}" placeholder="请输入搜索关键词" use-action-slot uq-right-icon-slot shape="round">
       <view slot="action" class="view-center">
-        <van-icon name="scan" size="24px" bind:tap="uploadByScanCode" />
+        <van-icon name="/resources/images/home/scan.png" size="24px" bind:tap="uploadByScanCode" />
       </view>
     </van-search>
     <van-tabs animated ellipsis="{{ false }}" color="#ff8260" line-width="28px" line-height="4px"
