@@ -12,15 +12,15 @@
         <banner></banner>
         <van-row>
           <van-col span="24">
-            <van-grid column-num="4" border="{{ false }}" icon-size="24px">
-              <van-grid-item icon="/resources/images/heart.png" text="今日推荐" dot />
-              <van-grid-item icon="/resources/images/course.png" text="最新共享" />
-              <van-grid-item icon="/resources/images/to_do.png" text="书籍分类" />
-              <van-grid-item icon="/resources/images/ranking_list.png" text="共享排行榜" />
-              <van-grid-item icon="/resources/images/interest.png" text="借阅排行榜" />
-              <van-grid-item icon="/resources/images/notice.png" text="公告" badge="3" />
-              <van-grid-item icon="/resources/images/sign_in.png" text="书评打卡" />
-              <van-grid-item icon="/resources/images/feedback.png" text="反馈" />
+            <van-grid column-num="4" border="{{ false }}" icon-size="28px">
+              <van-grid-item icon="/resources/images/home/scan.png" text="扫一扫" dot bind:click="uploadByScanCode"/>
+              <van-grid-item icon="/resources/images/home/upload.png" text="共享书籍" bind:click="uploadByHand" />
+              <van-grid-item icon="/resources/images/home/no1.png" text="共享排行榜" />
+              <van-grid-item icon="/resources/images/home/honor.png" text="借阅排行榜" />
+              <van-grid-item icon="/resources/images/home/heart.png" text="今日推荐" />
+              <van-grid-item icon="/resources/images/home/menu.png" text="分类" badge="3" />
+              <van-grid-item icon="/resources/images/home/status.png" text="公告" />
+              <van-grid-item icon="/resources/images/home/feedback.png" text="反馈" />
             </van-grid>
           </van-col>
         </van-row>
@@ -124,7 +124,7 @@
   </van-col>
 </van-row>
 <view class="floatView" bind:tap="openUploadBookAction">
-  <van-image width="48px" height="48px" fit="contain" round src="/resources/images/upload_order.png" />
+  <van-image width="48px" height="48px" fit="contain" round src="/resources/images/home/upload_book.svg" />
 </view>
 <!-- 上传书籍弹出框 -->
 <van-action-sheet show="{{ uploadBookShow }}" actions="{{ uploadBookActionList }}" bind:close="uploadBookActionOnClose"
