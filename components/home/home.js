@@ -21,6 +21,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    toBookCatalog() {
+      wx.navigateTo({
+        url: '/pages/book_catalog/book_catalog',
+      })
+    },
     openUploadBookAction() {
       this.setData(
         { uploadBookShow: true }
