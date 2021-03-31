@@ -74,12 +74,6 @@ Component({
             return;
           }
           let bookList = dts.bookDTOList;
-          bookList.forEach(r => {
-            // 字符串过长进行截取
-            if (r.bookName.length > 10) {
-              r.bookName = r.bookName.substring(0, 10) + "..."
-            }
-          })
           me.setData({
             bookList: bookList
           })

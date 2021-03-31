@@ -20,7 +20,7 @@
                 </van-row>
                 <van-row>
                   <van-col span="24">
-                    <text style="color: #323233; font-size: 12px">{{ item.bookName }}</text>
+                    <text style="color: #323233; font-size: 12px" class="book-text">{{ item.bookName }}</text>
                   </van-col>
                 </van-row>
                 <van-row>

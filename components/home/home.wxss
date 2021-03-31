@@ -12,6 +12,3 @@
   justify-content: center;
 }
 
-.book-content {
-  border-radius: 24rpx 24rpx 24rpx 24rpx;
-}

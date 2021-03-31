@@ -1,4 +1,8 @@
-/* components/book_catalog/book_catalog.wxss */
+/* components/book_grid/book_grid.wxss */
+.book-content {
+  border-radius: 24rpx 24rpx 24rpx 24rpx;
+}
+
 .book-text {
   display: -webkit-box;
   overflow: hidden;
