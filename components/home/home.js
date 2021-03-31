@@ -75,6 +75,11 @@ Component({
         }
       })
     },
+    toDeposit() {
+      wx.navigateTo({
+        url: '/pages/deposit_operate/deposit_operate',
+      })
+    },
     toBookCatalog() {
       wx.navigateTo({
         url: '/pages/book_catalog/book_catalog',
