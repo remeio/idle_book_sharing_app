@@ -21,7 +21,18 @@
         </van-grid>
       </van-col>
     </van-row>
-    <book-grid bookList="{{ bookList }}"></book-grid>
+    <van-row>
+      <van-col span="8" offset="8">
+        <van-divider contentPosition="center" dashed wx:if="bookListRecommend.length > 0">今日推荐</van-divider>
+      </van-col>
+    </van-row>
+    <book-grid bookList="{{ bookListRecommend }}"></book-grid>
+    <van-row>
+      <van-col span="8" offset="8">
+        <van-divider contentPosition="center" dashed wx:if="bookListToday.length > 0">今日上新</van-divider>
+      </van-col>
+    </van-row>
+    <book-grid bookList="{{ bookListToday }}"></book-grid>
   </van-col>
   <van-toast id="van-toast" />
 </van-row>
