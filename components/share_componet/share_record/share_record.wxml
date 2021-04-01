@@ -28,7 +28,6 @@
         </van-button>
         <van-button size="mini" type="danger" round style="margin-left: 4px" bind:click="toBorrowProgress"
           data-id="{{ item.id }}" data-type="{{ borrowOrLend }}" color="#ff8260">查看进度</van-button>
-        <van-divider />
       </view>
     </van-card>
   </van-col>
