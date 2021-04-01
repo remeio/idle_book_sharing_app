@@ -32,3 +32,8 @@
     </van-card>
   </van-col>
 </van-row>
+<van-row style="margin: 12px" wx:if="{{ shareRecordList.length > 0 }}">
+  <van-col span="8" offset="8">
+    <van-divider contentPosition="center" dashed>到底了~</van-divider>
+  </van-col>
+</van-row>
