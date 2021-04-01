@@ -1,5 +1,5 @@
 <view class="page" id="chat" style="padding-top: 12px">
-  <van-row wx:for="{{messageList}}">
+  <van-row wx:for="{{messageList}}" wx:key="id">
     <van-col span="24">
       <van-row>
         <van-col span="24">
@@ -8,10 +8,10 @@
       </van-row>
       <van-row>
         <van-col span="24">
-          <view class="left-message" style="float: left"
+          <view class="left-message" style="float: left" id="{{ 'msg' + (index + 1) }}"
             wx:if="{{ (isBorrow && item.operatorType == 1) || (!isBorrow && item.operatorType == 2)}}">
             {{item.messageContent}}</view>
-          <view class="right-message" style="float: right"
+          <view class="right-message" style="float: right" id="{{ 'msg' + (index + 1) }}"
             wx:if="{{ (isBorrow && item.operatorType == 2) || (!isBorrow && item.operatorType == 1)}}">
             {{item.messageContent}}</view>
         </van-col>

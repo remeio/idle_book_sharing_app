@@ -16,7 +16,9 @@ Page({
     shareRecordId: 0,
     messageContent: '',
     isBorrow: null,
-    loading: false
+    loading: false,
+    timer: null,
+    observer: null
   },
   getMessageList() {
     let me = this;
@@ -50,7 +52,7 @@ Page({
           if (i == 0) {
             messageDTOList[i].showGmtCreate = true
             continue;
-          } 
+          }
           let last = messageDTOList[i - 1]
           let now = messageDTOList[i]
           let minute = 5
@@ -60,21 +62,24 @@ Page({
             now.showGmtCreate = true
           }
         }
-        console.log(messageDTOList)
         // 清空
         me.setData({
           messageList: messageDTOList,
           borrowUserFullName: dts.borrowUserFullName,
           shareUserFullName: dts.shareUserFullName,
         })
-        wx.createSelectorQuery().select('#chat').boundingClientRect(function(rect) {
-          wx.pageScrollTo({
-            scrollTop: rect.height,
-            duration: 100
-          })
-        }).exec()
+        // 滚动到最下面
+        me.scrollToBottom()
       }
     })
+  },
+  scrollToBottom() {
+    wx.createSelectorQuery().select('#chat').boundingClientRect(function (rect) {
+      wx.pageScrollTo({
+        scrollTop: rect.height,
+        duration: 100
+      })
+    }).exec()
   },
   sendMessage() {
     let me = this;
@@ -117,7 +122,16 @@ Page({
       shareRecordId: options.shareRecordId,
       isBorrow: options.operatorType == "borrow"
     });
-    this.getMessageList()
+    let me = this
+    let seconds = 1
+    // 定时轮询
+    me.getMessageList()
+    let timer = setInterval(function () {
+      me.getMessageList()
+    }, seconds * 1000);
+    me.setData({
+      timer: timer
+    })
   },
 
   /**
@@ -145,7 +159,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    clearInterval(this.data.timer)
   },
 
   /**
