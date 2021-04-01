@@ -21,6 +21,7 @@
         </van-grid>
       </van-col>
     </van-row>
+    <van-notice-bar custom-class="myNotice" left-icon="volume-o" text="借阅书籍时，请爱护书籍并及时归还，如有受损或丢失请及时反馈，谢谢配合~ "/>
     <van-row>
       <van-col span="8" offset="8">
         <van-divider contentPosition="center" dashed wx:if="{{ bookListToday.length > 0 }}">今日上新</van-divider>
