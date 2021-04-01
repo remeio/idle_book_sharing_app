@@ -2,10 +2,9 @@
 <view class="page">
   <van-row>
     <van-col span="24">
-      <van-empty description="暂时没有押金记录~" wx:if="{{ depositList.length == 0 }}"/>
+      <van-empty description="暂时没有押金记录~" wx:if="{{ depositList.length == 0 }}" />
       <van-cell-group>
-        <van-cell use-label-slot wx:for="{{ depositList }}" wx:key="id"
-          border="{{ true }}">
+        <van-cell use-label-slot wx:for="{{ depositList }}" wx:key="id" border="{{ true }}">
           <span style="color: {{item.color}}">{{ item.depositAmountStr}}</span>
           <view slot="title">
             <van-icon wx:if="{{ item.depositOperateType == 1}}" name="/resources/images/can_use_deposit.png" />
@@ -21,15 +20,21 @@
               <van-col span="24"><text>{{ item.gmtCreateStr }}</text></van-col>
             </van-row>
             <van-row>
-              <van-col span="24"><text>{{ (item.depositOperateType == 1 || item.depositOperateType == 2 ? '' : item.bookName) }}</text></van-col>
+              <van-col span="24">
+                <text>{{ (item.depositOperateType == 1 || item.depositOperateType == 2 ? '' : item.bookName) }}</text>
+              </van-col>
             </van-row>
             <van-row>
-              <van-col span="24"><text>{{ item.depositOperateType == 1 || item.depositOperateType == 2 ? item.outerOrderNo : item.innerOrderNo }}</text></van-col>
+              <van-col span="24">
+                <text>{{ item.depositOperateType == 1 || item.depositOperateType == 2 ? item.outerOrderNo : item.innerOrderNo }}</text>
+              </van-col>
             </van-row>
           </view>
         </van-cell>
       </van-cell-group>
-      <van-divider contentPosition="center" wx:if="depositList.length > 0">到底了~</van-divider>
+      <van-col span="8" offset="8">
+        <van-divider contentPosition="center" dashed>到底了~</van-divider>
+      </van-col>
     </van-col>
   </van-row>
 </view>

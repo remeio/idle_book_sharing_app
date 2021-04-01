@@ -4,13 +4,13 @@
     <van-empty description="暂时没有共享书籍~" wx:if="{{ bookList.length == 0 }}" />
     <van-card wx:for="{{ bookList }}" wx:key="id" price="{{ item.bookDeposit }}.00" currency="押金:"
       desc="{{ item.gmtCreateStr }}" title="{{ item.bookName }}" thumb="{{ item.bookImageUrl }}" num="1">
-      <van-tag mark type="primary" wx:if="{{ item.bookStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">空闲
+      <van-tag mark type="primary" color="#ff8260" wx:if="{{ item.bookStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">空闲
       </van-tag>
-      <van-tag mark type="success" wx:if="{{ item.bookStatus == '2' }}" slot="tag" custom-class="custom-tag-of-card">受理中
+      <van-tag mark color="#ff4057" type="success" wx:if="{{ item.bookStatus == '2' }}" slot="tag" custom-class="custom-tag-of-card">受理中
       </van-tag>
-      <van-tag mark type="danger" wx:if="{{ item.bookStatus == '3' }}" slot="tag" custom-class="custom-tag-of-card">异常
+      <van-tag mark type="danger" color="#900048" wx:if="{{ item.bookStatus == '3' }}" slot="tag" custom-class="custom-tag-of-card">异常
       </van-tag>
-      <van-tag mark type="warning" wx:if="{{ item.bookStatus == '4' }}" slot="tag" custom-class="custom-tag-of-card">已下架
+      <van-tag mark type="warning" color="#900048" wx:if="{{ item.bookStatus == '4' }}" slot="tag" custom-class="custom-tag-of-card">已下架
       </van-tag>
       <view slot="tags">
         <van-tag round color="#ff8260" type="danger">T+{{ item.bookMaxPeriod }}</van-tag>

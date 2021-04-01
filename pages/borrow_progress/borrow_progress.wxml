@@ -3,9 +3,9 @@
     <van-col span="24">
       <view class="view-center">
         <van-image fit="heightFix" height="100" src="{{ shareRecord.bookImageUrl }}" />
-        <van-tag mark type="primary" wx:if="{{ shareRecord.recordStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">
+        <van-tag mark type="primary" color="#ff8260" wx:if="{{ shareRecord.recordStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">
         已下单</van-tag>
-      <van-tag mark type="danger" wx:if="{{ shareRecord.recordStatus == '2' }}" slot="tag" custom-class="custom-tag-of-card">借阅中
+      <van-tag mark type="danger" color="#ff4057" wx:if="{{ shareRecord.recordStatus == '2' }}" slot="tag" custom-class="custom-tag-of-card">借阅中
       </van-tag>
       <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '3' }}" slot="tag" custom-class="custom-tag-of-card">
         已归还</van-tag>
@@ -13,9 +13,9 @@
         逾期归还</van-tag>
       <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '5' }}" slot="tag" custom-class="custom-tag-of-card">
         已取消</van-tag>
-      <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '6' }}" slot="tag" custom-class="custom-tag-of-card">
+      <van-tag mark type="success" color="#900048" wx:if="{{ shareRecord.recordStatus == '6' }}" slot="tag" custom-class="custom-tag-of-card">
         书籍丢失</van-tag>
-      <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '7' }}" slot="tag" custom-class="custom-tag-of-card">
+      <van-tag mark type="success" color="#900048" wx:if="{{ shareRecord.recordStatus == '7' }}" slot="tag" custom-class="custom-tag-of-card">
         严重超时</van-tag>
       </view>
     </van-col>
@@ -81,9 +81,9 @@
     </van-col>
   </van-row>
   <van-row style="margin: 12px" wx:if="{{ shareRecord.recordStatus ==  3 || shareRecord.recordStatus ==  4 || shareRecord.recordStatus ==  5 || shareRecord.recordStatus ==  6 || shareRecord.recordStatus ==  7}}">
-    <van-col span="22" offset="1">
-      <van-divider contentPosition="center">交易已完成</van-divider>
-    </van-col>
+    <van-col span="8" offset="8">
+        <van-divider contentPosition="center" dashed>交易已完成~</van-divider>
+      </van-col>
   </van-row>
   <van-toast id="van-toast" />
   <van-dialog id="van-dialog" />

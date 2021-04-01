@@ -4,9 +4,9 @@
     <van-empty description="暂时没有共享记录~" wx:if="{{ shareRecordList.length == 0 }}"/>
     <van-card wx:for="{{ shareRecordList }}" wx:key="id" price="{{ item.bookDeposit }}.00" currency="押金:"
       desc="{{ item.gmtCreateStr }}" title="{{ item.bookName }}" num="1" thumb="{{ item.bookImageUrl }}">
-      <van-tag mark type="primary" wx:if="{{ item.recordStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">
+      <van-tag mark type="primary" color="#ff8260" wx:if="{{ item.recordStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">
         已下单</van-tag>
-      <van-tag mark type="danger" wx:if="{{ item.recordStatus == '2' }}" slot="tag" custom-class="custom-tag-of-card">借阅中
+      <van-tag mark type="danger" color="#ff4057" wx:if="{{ item.recordStatus == '2' }}" slot="tag" custom-class="custom-tag-of-card">借阅中
       </van-tag>
       <van-tag mark type="success" wx:if="{{ item.recordStatus == '3' }}" slot="tag" custom-class="custom-tag-of-card">
         已归还</van-tag>
@@ -14,9 +14,9 @@
         逾期归还</van-tag>
       <van-tag mark type="success" wx:if="{{ item.recordStatus == '5' }}" slot="tag" custom-class="custom-tag-of-card">
         已取消</van-tag>
-      <van-tag mark type="success" wx:if="{{ item.recordStatus == '6' }}" slot="tag" custom-class="custom-tag-of-card">
+      <van-tag mark type="success" color="#900048" wx:if="{{ item.recordStatus == '6' }}" slot="tag" custom-class="custom-tag-of-card">
         书籍丢失</van-tag>
-      <van-tag mark type="success" wx:if="{{ item.recordStatus == '7' }}" slot="tag" custom-class="custom-tag-of-card">
+      <van-tag mark type="success" color="#900048" wx:if="{{ item.recordStatus == '7' }}" slot="tag" custom-class="custom-tag-of-card">
         严重超时</van-tag>
       <view slot="tags">
         <van-tag round type="danger" color="#ff8260">T+{{ item.bookMaxPeriod }}</van-tag>
