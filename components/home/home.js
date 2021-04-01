@@ -18,13 +18,63 @@ Component({
     uploadBookShow: false,
     uploadBookActionList: [
       { name: "扫描ISBN", id: 0 }, { name: "手动录入", id: 1 }
-    ]
+    ],
+    rankListShare: [],
+    rankListBorrow: []
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    getRankListShare() {
+      let me = this
+      wx.request({
+        url: globalData.serverUrl + '/shareRecord/getShareRankList',
+        data: {},
+        method: 'POST',
+        success: function (res) {
+          let dts = res.data
+          if (!dts.success) {
+            return;
+          }
+          let rankList = dts.rankDTOList.map(r => {
+            return {
+              title: r.userFullName,
+              value: r.number
+            }
+          })
+          rankList = rankList.slice(0, 10)
+          me.setData({
+            rankListShare: rankList
+          })
+        }
+      })
+    },
+    getRankListBorrow() {
+      let me = this
+      wx.request({
+        url: globalData.serverUrl + '/shareRecord/getBorrowRankList',
+        data: {},
+        method: 'POST',
+        success: function (res) {
+          let dts = res.data
+          if (!dts.success) {
+            return;
+          }
+          let rankList = dts.rankDTOList.map(r => {
+            return {
+              title: r.userFullName,
+              value: r.number
+            }
+          })
+          rankList = rankList.slice(0, 10)
+          me.setData({
+            rankListBorrow: rankList
+          })
+        }
+      })
+    },
     toBorrowRank() {
       wx.navigateTo({
         url: '/pages/rank_borrow/rank_borrow',
@@ -152,6 +202,8 @@ Component({
     attached() {
       this.getBookListToday()
       this.getBookListRecommend()
+      this.getRankListShare()
+      this.getRankListBorrow()
     }
   }
 })
