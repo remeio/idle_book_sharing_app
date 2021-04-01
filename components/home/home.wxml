@@ -9,7 +9,7 @@
     <banner></banner>
     <van-row>
       <van-col span="24">
-        <van-grid column-num="4" border="{{ false }}" icon-size="28px">
+        <van-grid column-num="4" border="{{ false }}" icon-size="28px" custom-class="myVanGrid">
           <van-grid-item icon="/resources/images/home/scan.png" text="扫一扫" bind:click="uploadByScanCode" />
           <van-grid-item icon="/resources/images/home/upload.png" text="共享书籍" bind:click="uploadByHand" />
           <van-grid-item icon="/resources/images/home/no1.png" text="共享排行榜" bind:click="toShareRank" />
