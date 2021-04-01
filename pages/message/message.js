@@ -1,5 +1,5 @@
 // pages/borrow_progress/borrow_progress.js
-import {getDateStrFormDate} from '../../utils/util'
+import { getDateStrFormDate } from '../../utils/util'
 import Toast from '@vant/weapp/dist/toast/toast';
 var globalData = getApp().globalData;
 Page({
@@ -8,11 +8,45 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 消息列表
+    messageList: [],
+    borrowUserFullName: '',
+    shareUserFullName: '',
     // 状态
     shareRecordId: 0,
     messageContent: '',
     isBorrow: null,
     loading: false
+  },
+  getMessageList() {
+    let me = this;
+    wx.request({
+      url: globalData.serverUrl + '/shareRecord/getMessageList',
+      data: { shareRecordId: me.data.shareRecordId },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/json",
+        'authorization': globalData.token
+      },
+      success: function (res) {
+        let dts = res.data
+        if (!dts.success) {
+          return;
+        }
+        // 清空
+        me.setData({
+          messageList: dts.messageDTOList,
+          borrowUserFullName: dts.borrowUserFullName,
+          shareUserFullName: dts.shareUserFullName,
+        })
+        wx.createSelectorQuery().select('#chat').boundingClientRect(function(rect) {
+          wx.pageScrollTo({
+            scrollTop: rect.height,
+            duration: 100
+          })
+        }).exec()
+      }
+    })
   },
   sendMessage() {
     let me = this;
@@ -35,7 +69,8 @@ Page({
         me.setData({
           messageContent: ''
         })
-        // TODO 刷新界面
+        // 刷新界面
+        me.getMessageList()
       },
       fail: function (e) {
         console.log(e)
@@ -54,6 +89,7 @@ Page({
       shareRecordId: options.shareRecordId,
       isBorrow: options.operatorType == "borrow"
     });
+    this.getMessageList()
   },
 
   /**

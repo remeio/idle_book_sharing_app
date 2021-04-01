@@ -1,1 +1,32 @@
 /* pages/message/message.wxss */
+.left-message {
+  border-radius: 0px 12px 12px 12px;
+  padding: 8px;
+  max-width: 60%;
+  background-color: #ffffff;
+  text-align: left;
+  word-break: break-all;
+  /* IE 允许词内换行 */
+  word-wrap: break-word;
+  /* IE 内容将在边界内换行 */
+  overflow: auto;
+  margin: 12px;
+  display: flex;
+justify-content:flex-end;
+}
+.right-message {
+  border-radius: 12px 0px 12px 12px;
+  padding: 8px;
+  max-width: 60%;
+  color: #eee6e6;
+  background-color: #ff8260;
+  text-align: left;
+  word-break: break-all;
+  /* IE 允许词内换行 */
+  word-wrap: break-word;
+  /* IE 内容将在边界内换行 */
+  overflow: auto;
+  margin: 12px;
+  display: flex;
+justify-content:flex-end;
+}

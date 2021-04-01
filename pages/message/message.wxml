@@ -1,7 +1,12 @@
-<view class="page">
-  <van-row>
-    <van-col span="24">
-    </van-col>
+<view class="page" id="chat">
+  <van-row wx:for="{{messageList}}">
+    <view class="left-message" style="float: left"
+      wx:if="{{ (isBorrow && item.operatorType == 1) || (!isBorrow && item.operatorType == 2)}}">
+      {{item.messageContent}}</view>
+    <view class="right-message" style="float: right"
+      wx:if="{{ (isBorrow && item.operatorType == 2) || (!isBorrow && item.operatorType == 1)}}">
+      {{item.messageContent}}</view>
+    <br style="clear: both" />
   </van-row>
   <van-submit-bar wx:if="{{ !loading }}" button-text="发送" bind:submit="sendMessage" tip="{{ true }}">
     <view>
