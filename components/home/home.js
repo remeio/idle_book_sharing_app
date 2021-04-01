@@ -202,8 +202,9 @@ Component({
     attached() {
       this.getBookListToday()
       this.getBookListRecommend()
-      this.getRankListShare()
-      this.getRankListBorrow()
+      // 不显示排行榜
+      // this.getRankListShare()
+      // this.getRankListBorrow()
     }
   }
 })

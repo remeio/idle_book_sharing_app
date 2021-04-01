@@ -34,18 +34,18 @@
       </van-col>
     </van-row>
     <book-grid bookList="{{ bookListRecommend }}"></book-grid>
-    <van-row>
+    <van-row wx:if="{{ rankListShare.length != 0 || rankListBorrow.length != 0}}">
       <van-col span="8" offset="8">
         <van-divider contentPosition="center" dashed>排行榜</van-divider>
       </van-col>
     </van-row>
-    <van-row>
+    <van-row wx:if="{{ rankListShare.length != 0 }}">
       <van-col span="24">
         <ranking-list rankingList="{{rankListShare }}" valueUnit="次" title="借阅排行榜"
           icon="/resources/images/home/honor.png" titleSecond="借阅书籍次数最多~"></ranking-list>
       </van-col>
     </van-row>
-    <van-row>
+    <van-row wx:if="{{ rankListBorrow.length != 0}}">
       <van-col span="24">
         <ranking-list rankingList="{{rankListBorrow }}" valueUnit="次" title="共享排行榜"
           icon="/resources/images/home/no1.png" titleSecond="共享书籍次数最多~"></ranking-list>
