@@ -2,7 +2,7 @@
 <van-row>
   <van-col span="24">
     <van-empty description="暂时没有共享书籍~" wx:if="{{ bookList.length == 0 }}" />
-    <van-card wx:for="{{ bookList }}" wx:key="id" price="{{ item.bookDeposit }}.00" currency="押金:"
+    <van-card custom-class="myCard"	wx:for="{{ bookList }}" wx:key="id" price="{{ item.bookDeposit }}.00" currency="押金:"
       desc="{{ item.gmtCreateStr }}" title="{{ item.bookName }}" thumb="{{ item.bookImageUrl }}" num="1">
       <van-tag mark type="primary" color="#ff8260" wx:if="{{ item.bookStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">空闲
       </van-tag>
@@ -26,7 +26,6 @@
           bind:tap="onShelfBook" data-id="{{ item.id }}" color="#ff8260">上架</van-button>
         <van-button size="mini" type="danger" round style="margin-left: 4px" wx:if="{{ item.bookStatus != '4' }}"
           bind:tap="offShelfBook" data-id="{{ item.id }}" color="#ff8260">下架</van-button>
-        <van-divider />
       </view>
     </van-card>
   </van-col>

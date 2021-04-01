@@ -1,7 +1,7 @@
 <van-row>
   <van-col span="24">
     <van-empty description="书箱里空空如也~" wx:if="{{ bookcaseList.length == 0 }}" />
-    <van-card wx:for="{{ bookcaseList }}" wx:key="id" price="{{ item.bookDTO.bookDeposit }}.00" currency="押金:"
+    <van-card custom-class="myCard" wx:for="{{ bookcaseList }}" wx:key="id" price="{{ item.bookDTO.bookDeposit }}.00" currency="押金:"
     desc="{{ item.gmtCreateStr }}" title="{{ item.bookDTO.bookName }}" thumb="{{ item.bookDTO.bookImageUrl }}">
       <van-tag mark type="primary" wx:if="{{ item.bookDTO.bookStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">空闲
       </van-tag>

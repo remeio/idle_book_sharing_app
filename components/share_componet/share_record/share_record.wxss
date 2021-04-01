@@ -4,3 +4,10 @@
   top: 2px;
   left: 0
 }
+
+.myCard {
+  margin: 12px;
+  padding: 12px !important;
+  border-radius: 24rpx 24rpx 24rpx 24rpx;
+  background-color: #ffffff !important;
+}

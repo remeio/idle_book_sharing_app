@@ -2,7 +2,7 @@
 <van-row>
   <van-col span="24">
     <van-empty description="暂时没有共享记录~" wx:if="{{ shareRecordList.length == 0 }}"/>
-    <van-card wx:for="{{ shareRecordList }}" wx:key="id" price="{{ item.bookDeposit }}.00" currency="押金:"
+    <van-card custom-class="myCard" wx:for="{{ shareRecordList }}" wx:key="id" price="{{ item.bookDeposit }}.00" currency="押金:"
       desc="{{ item.gmtCreateStr }}" title="{{ item.bookName }}" num="1" thumb="{{ item.bookImageUrl }}">
       <van-tag mark type="primary" color="#ff8260" wx:if="{{ item.recordStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">
         已下单</van-tag>
