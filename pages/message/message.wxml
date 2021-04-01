@@ -1,12 +1,22 @@
-<view class="page" id="chat">
+<view class="page" id="chat" style="padding-top: 12px">
   <van-row wx:for="{{messageList}}">
-    <view class="left-message" style="float: left"
-      wx:if="{{ (isBorrow && item.operatorType == 1) || (!isBorrow && item.operatorType == 2)}}">
-      {{item.messageContent}}</view>
-    <view class="right-message" style="float: right"
-      wx:if="{{ (isBorrow && item.operatorType == 2) || (!isBorrow && item.operatorType == 1)}}">
-      {{item.messageContent}}</view>
-    <br style="clear: both" />
+    <van-col span="24">
+      <van-row>
+        <van-col span="24">
+          <text class="view-center" wx:if="{{ item.showGmtCreate == true }}" style="font-size: 14px">{{ item.gmtCreateStr }}</text>
+        </van-col>
+      </van-row>
+      <van-row>
+        <van-col span="24">
+          <view class="left-message" style="float: left"
+            wx:if="{{ (isBorrow && item.operatorType == 1) || (!isBorrow && item.operatorType == 2)}}">
+            {{item.messageContent}}</view>
+          <view class="right-message" style="float: right"
+            wx:if="{{ (isBorrow && item.operatorType == 2) || (!isBorrow && item.operatorType == 1)}}">
+            {{item.messageContent}}</view>
+        </van-col>
+      </van-row>
+    </van-col>
   </van-row>
   <van-submit-bar wx:if="{{ !loading }}" button-text="发送" bind:submit="sendMessage" tip="{{ true }}">
     <view>

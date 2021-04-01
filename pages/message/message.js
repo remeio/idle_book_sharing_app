@@ -33,9 +33,37 @@ Page({
         if (!dts.success) {
           return;
         }
+        let messageDTOList = dts.messageDTOList.map(r => {
+          r.gmtCreateStr = getDateStrFormDate(new Date(r.gmtCreate))
+          let isToday = (new Date(r.gmtCreate).toDateString() == new Date().toDateString())
+          let isSameYear = (new Date(r.gmtCreate).getFullYear() == new Date().getFullYear())
+          if (isToday == true) {
+            r.gmtCreateStr = r.gmtCreateStr.substring(11)
+          } else if (isSameYear == true) {
+            r.gmtCreateStr = r.gmtCreateStr.substring(5)
+          }
+          return r
+        })
+        // 5 分钟内的消息不重复显示时间
+        for (let i = 0; i < messageDTOList.length; i++) {
+          // 第一个始终显示
+          if (i == 0) {
+            messageDTOList[i].showGmtCreate = true
+            continue;
+          } 
+          let last = messageDTOList[i - 1]
+          let now = messageDTOList[i]
+          let minute = 5
+          if (new Date(now.gmtCreate).getTime() - new Date(last.gmtCreate).getTime() < 1000 * 60 * minute) {
+            now.showGmtCreate = false
+          } else {
+            now.showGmtCreate = true
+          }
+        }
+        console.log(messageDTOList)
         // 清空
         me.setData({
-          messageList: dts.messageDTOList,
+          messageList: messageDTOList,
           borrowUserFullName: dts.borrowUserFullName,
           shareUserFullName: dts.shareUserFullName,
         })
