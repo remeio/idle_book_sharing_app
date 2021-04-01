@@ -5,9 +5,9 @@
       <van-row>
         <van-col>
           <view class="view-center">
-            <van-icon name="/resources/images/wg.png" size="24px" />
-            <text style="margin-left: 8px; font-size: 18px; color:#9D5B29;font-weight:bold">排行榜</text>
-            <text style="margin-left: 8px; font-size: 14px; color:#9D5B29;">最多共享书籍~</text>
+            <van-icon name="{{ icon ? icon : '/resources/images/wg.png' }}" size="24px" />
+            <text style="margin-left: 8px; font-size: 18px; color:#9D5B29;font-weight:bold">{{ title ? title : '排行榜' }}</text>
+            <text style="margin-left: 8px; font-size: 14px; color:#9D5B29;">{{ titleSecond }}</text>
           </view>
         </van-col>
       </van-row>

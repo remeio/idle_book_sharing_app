@@ -7,9 +7,18 @@ Component({
     rankingList: {
       type: Object
     },
+    icon: {
+      type: String,
+    },
+    title: {
+      type: String,
+    },
+    titleSecond: {
+      type: String,
+    },
     valueUnit: {
-      type: String
-    }
+      type: String,
+    },
   },
 
   /**
