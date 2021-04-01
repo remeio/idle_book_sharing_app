@@ -1,0 +1,7 @@
+<!--pages/rank_borrow/rank_borrow.wxml-->
+<van-row>
+  <van-col span="24">
+    <ranking-list rankingList="{{rankList }}" valueUnit="次" title="共享排行榜" icon="/resources/images/home/no1.png"
+      titleSecond="共享书籍次数最多~"></ranking-list>
+  </van-col>
+</van-row>

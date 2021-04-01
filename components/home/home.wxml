@@ -12,8 +12,8 @@
         <van-grid column-num="4" border="{{ false }}" icon-size="28px">
           <van-grid-item icon="/resources/images/home/scan.png" text="扫一扫" bind:click="uploadByScanCode" />
           <van-grid-item icon="/resources/images/home/upload.png" text="共享书籍" bind:click="uploadByHand" />
-          <van-grid-item icon="/resources/images/home/no1.png" text="共享排行榜" />
-          <van-grid-item icon="/resources/images/home/honor.png" text="借阅排行榜" />
+          <van-grid-item icon="/resources/images/home/no1.png" text="共享排行榜" bind:click="toShareRank"/>
+          <van-grid-item icon="/resources/images/home/honor.png" text="借阅排行榜" bind:click="toBorrowRank"/>
           <van-grid-item icon="/resources/images/home/money.png" text="押金"  bind:click="toDeposit"/>
           <van-grid-item icon="/resources/images/home/menu.png" text="分类" bind:click="toBookCatalog" />
           <van-grid-item icon="/resources/images/home/status.png" text="公告" />

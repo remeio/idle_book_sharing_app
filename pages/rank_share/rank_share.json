@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "共享排行榜",
+  "usingComponents": {
+    "ranking-list": "/components/ranking_list/ranking_list"
+  }
+}

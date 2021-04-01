@@ -25,6 +25,16 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    toBorrowRank() {
+      wx.navigateTo({
+        url: '/pages/rank_borrow/rank_borrow',
+      })
+    },
+    toShareRank() {
+      wx.navigateTo({
+        url: '/pages/rank_share/rank_share',
+      })
+    },
     getBookListToday() {
       let me = this
       wx.request({
