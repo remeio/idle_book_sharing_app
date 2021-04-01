@@ -1,0 +1,27 @@
+<view>
+  <van-row>
+    <van-col span="24">
+      <view class="view-center">
+        <van-image fit="heightFix" height="140" src="http://115.29.198.114:9090/system/feedback.png" />
+      </view>
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="24">
+      <van-cell-group>
+        <van-field model:value="{{ feedbackContent }}" label="反馈内容" maxlength="500" show-word-limit="{{true}}" placeholder="请输入反馈内容" left-icon="smile-comment-o"
+          required type="textarea" autosize />
+        <van-field model:value="{{ feedbackOrder }}" label="关联订单号" placeholder="请输入关联订单号" left-icon="bill-o" />
+      </van-cell-group>
+    </van-col>
+  </van-row>
+  <van-row style="margin: 12px">
+    <van-col span="22" offset="1">
+      <van-button round type="danger" color="#FFE4C4" block loading disabled loading-text="反馈中..."
+        wx:if="{{ loading }}">反馈中</van-button>
+      <van-button round type="danger" color="linear-gradient(to bottom right, #FDC830, #F37335)" block
+        bind:click="resetPassword" wx:if="{{ !loading }}">立刻反馈</van-button>
+    </van-col>
+  </van-row>
+  <van-toast id="van-toast" />
+</view>

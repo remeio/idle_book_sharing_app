@@ -75,6 +75,16 @@ Component({
         }
       })
     },
+    toFeedback() {
+      wx.navigateTo({
+        url: '/pages/feedback/feedback',
+      })
+    },
+    toDepositDetail() {
+      wx.navigateTo({
+        url: '/pages/deposit_detail/deposit_detail',
+      })
+    },
     toBorrowRank() {
       wx.navigateTo({
         url: '/pages/rank_borrow/rank_borrow',
