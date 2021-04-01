@@ -51,6 +51,11 @@
           icon="/resources/images/home/no1.png" titleSecond="共享书籍次数最多~"></ranking-list>
       </van-col>
     </van-row>
+    <van-row>
+      <van-col span="8" offset="8">
+        <van-divider contentPosition="center" dashed>到底了~</van-divider>
+      </van-col>
+    </van-row>
   </van-col>
   <van-toast id="van-toast" />
 </van-row>
