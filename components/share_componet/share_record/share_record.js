@@ -22,6 +22,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    toMessage(e) {
+      wx.navigateTo({
+        url: '/pages/message/message?shareRecordId=' + e.currentTarget.dataset.id,
+      })
+    },
     toBorrowProgress(e) {
       wx.navigateTo({
         url: '/pages/borrow_progress/borrow_progress?shareRecordId=' + e.currentTarget.dataset.id + '&operatorType=' + e.currentTarget.dataset.type,

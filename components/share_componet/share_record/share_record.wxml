@@ -23,7 +23,7 @@
         <van-tag plain round type="primary" style="margin-left: 4px" wx:if="{{ item.bookDeposit == 0}}">免押金</van-tag>
       </view>
       <view slot="footer">
-        <van-button size="mini" round bind:click="toMessage" data-order="1233112121212">沟通</van-button>
+        <van-button size="mini" round bind:click="toMessage" data-id="{{ item.id }}">沟通</van-button>
         <van-button size="mini" round style="margin-left: 4px" bind:tap="toBookDetail" data-id="{{ item.bookId }}">详情
         </van-button>
         <van-button size="mini" type="danger" round style="margin-left: 4px" bind:click="toBorrowProgress"

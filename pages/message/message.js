@@ -27,7 +27,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      order: options.order
+      order: options.shareRecordId
     });
   },
 
