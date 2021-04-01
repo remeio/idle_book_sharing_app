@@ -11,7 +11,7 @@ Page({
     feedbackOrder: '',
     loading: false
   },
-  resetPassword() {
+  feedback() {
     let me = this;
     me.setData({ loading: true })
     wx.request({

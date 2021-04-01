@@ -3,9 +3,15 @@
     <van-col span="24">
     </van-col>
   </van-row>
-  <van-submit-bar button-text="发送" bind:submit="onClickButton" tip="{{ true }}">
+  <van-submit-bar wx:if="{{ !loading }}" button-text="发送" bind:submit="sendMessage" tip="{{ true }}">
     <view>
-      <van-field value="{{ value }}" placeholder="请输入用户名" border="{{ false }}" bind:change="onChange" />
+      <van-field model:value="{{ messageContent }}" placeholder="请输入消息内容" border="{{ false }}" />
     </view>
   </van-submit-bar>
+  <van-submit-bar wx:if="{{ loading }}" loading button-text="发送" bind:submit="sendMessage" tip="{{ true }}">
+    <view>
+      <van-field model:value="{{ messageContent }}" placeholder="请输入消息内容" border="{{ false }}" />
+    </view>
+  </van-submit-bar>
+  <van-toast id="van-toast" />
 </view>

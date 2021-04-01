@@ -20,7 +20,7 @@
       <van-button round type="danger" color="#FFE4C4" block loading disabled loading-text="反馈中..."
         wx:if="{{ loading }}">反馈中</van-button>
       <van-button round type="danger" color="linear-gradient(to bottom right, #FDC830, #F37335)" block
-        bind:click="resetPassword" wx:if="{{ !loading }}">立刻反馈</van-button>
+        bind:click="feedback" wx:if="{{ !loading }}">立刻反馈</van-button>
     </van-col>
   </van-row>
   <van-toast id="van-toast" />

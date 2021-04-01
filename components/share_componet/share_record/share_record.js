@@ -24,7 +24,7 @@ Component({
   methods: {
     toMessage(e) {
       wx.navigateTo({
-        url: '/pages/message/message?shareRecordId=' + e.currentTarget.dataset.id,
+        url: '/pages/message/message?shareRecordId=' + e.currentTarget.dataset.id + '&operatorType=' + e.currentTarget.dataset.type,
       })
     },
     toBorrowProgress(e) {
