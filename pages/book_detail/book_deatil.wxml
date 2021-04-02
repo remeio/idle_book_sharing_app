@@ -1,25 +1,74 @@
-<view>
+<view class="page">
   <van-row>
     <van-col span="24">
-      <van-row>
+      <van-row custom-class="white-back">
         <van-col span="24">
-          <van-image width="100%" height="200px" fit="contain" src="{{ bookImageUrl }}" />
+          <van-image width="100%" height="140px" fit="contain" src="{{ bookImageUrl }}" />
         </van-col>
       </van-row>
       <van-row>
-        <van-cell-group>
-          <van-cell title="书名" value="{{ bookName }}" icon="orders-o" />
-          <van-cell title="ISBN" value="{{ bookIsbn }}" icon="bookmark-o" />
-          <van-cell title="书籍类别" value="{{ bookCatalogName }}" icon="coupon-o" />
-          <van-cell title="最大共享天数" value="{{ bookMaxPeriod }}" icon="clock-o" />
-          <van-cell title="所需押金" value="{{ bookDeposit }}" icon="balance-o" />
-          <van-cell title="共享者" value="{{ userFullName }}" icon="user-o" />
-          <van-cell title="书籍详情" value="{{ bookDescription }}" icon="description" />
-        </van-cell-group>
+        <van-col span="24">
+          <view class="title">
+            <van-row>
+              <van-col span="24">
+                <text style="color: #ff4057; font-size: 18px">￥{{ bookDeposit }}.00</text>
+              </van-col>
+            </van-row>
+            <van-row custom-class="title-book-name">
+              <van-col span="24">
+                <text style="color: #444;font-weight: bold">{{ bookName }}</text>
+              </van-col>
+            </van-row>
+          </view>
+        </van-col>
+      </van-row>
+      <van-row>
+        <van-col span="24">
+          <view class="myCard">
+            <van-row>
+              <van-col span="24">
+                <van-cell-group custom-class="myCellGroup" border="{{false}}">
+                  <van-cell title="ISBN" value="{{ bookIsbn }}" title-class="myTitle" value-class="myValue"
+                    border="{{false}}">
+                    <van-icon name="money-o" slot="right-icon" />
+                  </van-cell>
+                  <van-cell title="书籍类别" value="{{ bookCatalogName }}" title-class="myTitle" value-class="myValue"
+                    border="{{false}}" />
+                  <van-cell title="最大共享天数" title-class="myTitle" value-class="myValue" border="{{false}}">
+                    <van-tag type="danger" color="#ff8260" round>T+{{ bookMaxPeriod }}</van-tag>
+                  </van-cell>
+                  <van-cell title="所需押金" title-class="myTitle" value-class="myValue"
+                    border="{{false}}">
+                    <van-tag round plain type="primary" wx:if="{{ bookDeposit == 0}}">免押金</van-tag>
+                    <text wx:if="{{bookDeposit != 0}}">{{ bookDeposit }}.00</text>
+                  </van-cell>
+                  <van-cell title="共享者" value="{{ userFullName }}" title-class="myTitle" value-class="myValue"
+                    border="{{false}}" />
+                </van-cell-group>
+              </van-col>
+            </van-row>
+          </view>
+        </van-col>
+      </van-row>
+      <van-row>
+        <van-col span="24">
+          <view class="myCard">
+            <van-row>
+              <van-col span="24">
+                <text style="color: #666; font-size: 16px">书籍详情</text>
+              </van-col>
+            </van-row>
+            <van-row custom-class="title-book-name">
+              <van-col span="24">
+                <text style="color: #333; font-size: 14px; line-height: 2">{{ bookDescription }}</text>
+              </van-col>
+            </van-row>
+          </view>
+        </van-col>
       </van-row>
     </van-col>
   </van-row>
-
+  <view style="margin-top: 50px"></view>
   <van-row>
     <van-col span="24">
       <van-goods-action>
@@ -33,7 +82,8 @@
     </van-col>
   </van-row>
   <van-toast id="van-toast" />
-  <van-popup show="{{ bookcaseShow }}" bind:close="onCloseBookcase" round position="bottom" closeable custom-style="height: 40%">
+  <van-popup show="{{ bookcaseShow }}" bind:close="onCloseBookcase" round position="bottom" closeable
+    custom-style="height: 40%">
     <scroll-view scroll-y="true" style="height: 100%">
       <bookcase isDetail="{{ true }}" id="bookcase"></bookcase>
     </scroll-view>

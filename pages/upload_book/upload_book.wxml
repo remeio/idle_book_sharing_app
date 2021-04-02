@@ -35,6 +35,7 @@
       </van-cell-group>
     </van-col>
   </van-row>
+  <view style="margin-top: 80px"></view>
   <van-row>
     <van-col span="24">
       <van-submit-bar wx:if="{{ uploadLoading }}" label="最大共享天数:" decimal-length="0" currency=""

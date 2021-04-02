@@ -1,1 +1,37 @@
 /* pages/book_detail/book_deatil.wxss */
+.myCard {
+  margin: 12px 8px 0px 8px;
+  padding: 12px;
+  border-radius: 24rpx 24rpx 24rpx 24rpx;
+  background-color: #ffffff;
+}
+.title {
+  margin: 12px 8px 0px 8px;
+  padding: 16px;
+  border-radius: 24rpx 24rpx 24rpx 24rpx;
+  background-color: #ffffff;
+}
+
+.title-book-name {
+  margin-top: 8px;
+}
+.myTitle {
+  font-size: 14px;
+  color: #666;
+}
+
+.myValue {
+  font-size: 14px;
+  color: #333 !important;
+}
+
+.white-back {
+  background-color: #ffffff;
+  padding-bottom: 4px;
+}
+
+.view-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

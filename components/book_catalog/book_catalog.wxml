@@ -10,7 +10,7 @@
       <van-col span="24">
         <van-empty description="该分类暂无书籍" wx:if="{{ bookList.length == 0}}" />
         <van-grid column-num="2" border="{{ false }}" gutter="{{ 0 }}" wx:if="{{ bookList.length != 0}}">
-          <van-grid-item use-slot wx:for="{{ bookList }}">
+          <van-grid-item use-slot wx:for="{{ bookList }}" wx:key="id">
             <van-row style="width: 100%" bind:tap="toBookDetail" data-id="{{ item.id }}">
               <van-col span="24">
                 <van-row>
