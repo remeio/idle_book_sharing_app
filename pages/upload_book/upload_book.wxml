@@ -14,7 +14,7 @@
         <van-field model:value="{{ bookDescription }}" label="书籍详情" placeholder="请输入书籍详情" type="textarea" autosize
           left-icon="description" required />
         <van-cell center title="书籍类别" value="{{ bookCatalogNameList[bookCatalogIndex] }}" icon="coupon-o" required
-          bind:click="showBookCatalogPopup" />
+          bind:click="showBookCatalogPopup" is-link />
         <van-cell center title="最大共享天数" icon="clock-o" required>
           <van-stepper value="{{ bookMaxPeriod }}" disable-input="{{ true }}" integer min="7" max="98" step="7"
             bind:change="setBookMaxPeriod" />
@@ -49,7 +49,7 @@
 <van-toast id="van-toast" />
 <van-dialog id="van-dialog" />
 <van-popup show="{{ bookCatalogPopupShow }}" round position="bottom" custom-style="height: 40%"
-  bind:close="closeBookCatalogPopup">
+  bind:close="closeBookCatalogPopup" closeable>
   <van-picker columns="{{ bookCatalogNameList }}" bind:change="onChangeBookCatalog"
     default-index="{{ bookCatalogIndex }}" />
 </van-popup>

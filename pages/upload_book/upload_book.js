@@ -83,7 +83,7 @@ Page({
   dialogBookShareDay() {
     Dialog.alert({
       title: '最大共享天数',
-      message: '最大共享天数是指所接受的最大共享天数，例如最大共享天数设为 21，则支持别人以 7，14，21 借出该书籍',
+      message: '最大共享天数是指所接受的最大共享天数',
       theme: 'round-button',
     }).then(() => {
       // on close
