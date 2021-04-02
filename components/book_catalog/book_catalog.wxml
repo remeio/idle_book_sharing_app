@@ -1,3 +1,12 @@
+<!-- 搜索框 -->
+<van-sticky>
+  <van-search value="{{ value }}" placeholder="输入书名、ISBN" disabled bind:tap="toSearch" use-action-slot
+    uq-right-icon-slot shape="round">
+    <view slot="action" class="view-center">
+      <van-icon name="/resources/images/home/scan.png" size="24px" catchtap="searchByScanCode" />
+    </view>
+  </van-search>
+</van-sticky>
 <view>
   <view style="float: left; width: 80px;">
     <van-sidebar active-key="{{ bookCatalogIndex }}" bind:change="onChangBookCatalog">
@@ -7,6 +16,7 @@
   </view>
   <view style="float: right; width: calc(100% - 80px);">
     <van-row>
+      <van-toast id="van-toast" />
       <van-col span="24">
         <van-empty description="该分类暂无书籍" wx:if="{{ bookList.length == 0}}" />
         <van-grid column-num="2" border="{{ false }}" gutter="{{ 0 }}" wx:if="{{ bookList.length != 0}}">

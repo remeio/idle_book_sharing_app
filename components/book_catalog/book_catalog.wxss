@@ -8,3 +8,9 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
+
+.view-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

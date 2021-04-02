@@ -1,5 +1,7 @@
 // components/book_catalog/book_catalog.js
 var globalData = getApp().globalData;
+const { default: Toast } = require("@vant/weapp/dist/toast/toast");
+
 Component({
   /**
    * 组件的属性列表
@@ -51,6 +53,29 @@ Component({
           // 分类加载成功时，加载书籍数据
           me.getBookListByBookCatalog()
         }
+      })
+    },
+    searchByScanCode() {
+      let me = this
+      wx.scanCode({
+        success(res) {
+          if (res.scanType != "EAN_13") {
+            Toast({ message: "不是有效的ISBN，请重试~", selector: "#van-toast1" });
+            return;
+          }
+          let isbn = res.result;
+          wx.navigateTo({
+            url: '/pages/search/search?isbn=' + isbn,
+          })
+        },
+        fail() {
+          Toast({ message: "扫描ISBN失败，请重试~", context: me });
+        }
+      })
+    },
+    toSearch() {
+      wx.navigateTo({
+        url: '/pages/search/search',
       })
     },
     onChangBookCatalog(event) {
