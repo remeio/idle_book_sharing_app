@@ -1,6 +1,7 @@
 <!--components/share_componet/share/share.wxml-->
 <van-row>
   <van-col span="24">
+    <van-notice-bar scrollable="{{ false }}" custom-class="myNotice" left-icon="volume-o" text="请及时处理异常状态的书籍~ " mode="closeable"/>
     <van-empty description="暂时没有共享书籍~" wx:if="{{ bookList.length == 0 }}" />
     <van-card custom-class="myCard"	wx:for="{{ bookList }}" wx:key="id" price="{{ item.bookDeposit }}.00" currency="押金:"
       desc="{{ item.gmtCreateStr }}" title="{{ item.bookName }}" thumb="{{ item.bookImageUrl }}" num="1">

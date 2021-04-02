@@ -23,20 +23,20 @@
     </van-row>
     <van-notice-bar custom-class="myNotice" left-icon="volume-o" text="借阅书籍时，请爱护书籍并及时归还，如有受损或丢失请及时反馈，谢谢配合~ "/>
     <van-row>
-      <van-col span="8" offset="8">
-        <van-divider contentPosition="center" dashed wx:if="{{ bookListToday.length > 0 }}">今日上新</van-divider>
+      <van-col span="16" offset="4">
+        <van-divider contentPosition="center" dashed wx:if="{{ bookListToday.length > 0 }}">今 / 日 / 上 / 新</van-divider>
       </van-col>
     </van-row>
     <book-grid bookList="{{ bookListToday }}"></book-grid>
     <van-row>
-      <van-col span="8" offset="8">
-        <van-divider contentPosition="center" dashed wx:if="{{ bookListRecommend.length > 0 }}">今日推荐</van-divider>
+      <van-col span="16" offset="4">
+        <van-divider contentPosition="center" dashed wx:if="{{ bookListRecommend.length > 0 }}">今 / 日 / 推 / 荐</van-divider>
       </van-col>
     </van-row>
     <book-grid bookList="{{ bookListRecommend }}"></book-grid>
     <van-row wx:if="{{ rankListShare.length != 0 || rankListBorrow.length != 0}}">
-      <van-col span="8" offset="8">
-        <van-divider contentPosition="center" dashed>排行榜</van-divider>
+      <van-col span="16" offset="4">
+        <van-divider contentPosition="center" dashed>排 / 行 / 榜</van-divider>
       </van-col>
     </van-row>
     <van-row wx:if="{{ rankListShare.length != 0 }}">

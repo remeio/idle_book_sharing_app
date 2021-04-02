@@ -1,6 +1,8 @@
 <!--components/share_componet/lend/lend.wxml-->
 <van-row>
   <van-col span="24">
+    <van-notice-bar wx:if="{{ borrowOrLend =='borrow'}}" scrollable="{{ false }}" custom-class="myNotice" left-icon="volume-o" text="借阅书籍时，请爱护书籍并及时归还~ " mode="closeable"/>
+    <van-notice-bar wx:if="{{ borrowOrLend =='lend'}}" scrollable="{{ false }}" custom-class="myNotice" left-icon="volume-o" text="请关注书籍动态，更助于分享~ " mode="closeable"/>
     <van-empty description="暂时没有共享记录~" wx:if="{{ shareRecordList.length == 0 }}"/>
     <van-card custom-class="myCard" wx:for="{{ shareRecordList }}" wx:key="id" price="{{ item.bookDeposit }}.00" currency="押金:"
       desc="{{ item.gmtCreateStr }}" title="{{ item.bookName }}" num="1" thumb="{{ item.bookImageUrl }}">
