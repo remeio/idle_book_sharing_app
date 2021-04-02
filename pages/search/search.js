@@ -1,11 +1,40 @@
 // pages/search/search.js
+var globalData = getApp().globalData;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    bookList: null,
+    keyword: ''
+  },
+  onChange(e) {
+    this.setData({
+      keyword: e.detail,
+    });
+  },
+  getSearchBookList() {
+    let me = this
+    wx.request({
+      url: globalData.serverUrl + '/book/getSearchBookList',
+      data: {keyword: me.data.keyword},
+      header: {
+        "Content-Type": "application/json",
+        'authorization': globalData.token
+      },
+      method: 'POST',
+      success: function (res) {
+        let dts = res.data
+        if (!dts.success) {
+          return;
+        }
+        let bookList = dts.bookDTOList
+        me.setData({
+          bookList: bookList
+        })
+      }
+    })
   },
 
   /**

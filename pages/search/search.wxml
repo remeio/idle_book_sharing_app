@@ -1,2 +1,21 @@
-<!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<view class="page">
+  <van-row>
+    <van-col span="24">
+      <van-sticky>
+        <van-search value="{{ keyword }}" bind:change="onChange" focus="{{ true }}" bind:search="getSearchBookList"
+          placeholder="请输入书名或ISBN，或免押金" shape="round">
+        </van-search>
+      </van-sticky>
+      <view style="margin-top: 12px"></view>
+      <van-empty image="search" description="没有搜索到相关内容~" wx:if="{{bookList.length == 0}}" />
+      <van-row>
+        <book-grid bookList="{{ bookList }}"></book-grid>
+      </van-row>
+      <van-row style="margin: 12px" wx:if="{{ bookList.length > 0 }}">
+        <van-col span="8" offset="8">
+          <van-divider contentPosition="center" dashed>到底了~</van-divider>
+        </van-col>
+      </van-row>
+    </van-col>
+  </van-row>
+</view>

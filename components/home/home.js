@@ -75,6 +75,11 @@ Component({
         }
       })
     },
+    toSearch() {
+      wx.navigateTo({
+        url: '/pages/search/search',
+      })
+    },
     toFeedback() {
       wx.navigateTo({
         url: '/pages/feedback/feedback',
