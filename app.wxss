@@ -2,7 +2,7 @@
 .page {
   box-sizing: border-box;
   min-height: 100vh;
-  padding: 0 0 100rpx;
+  padding: 0 0 12rpx;
   color: #323233;
   font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
