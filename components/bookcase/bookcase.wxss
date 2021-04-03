@@ -10,3 +10,10 @@
   border-radius: 24rpx 24rpx 24rpx 24rpx;
   background-color: #ffffff !important;
 }
+
+.myNotice {
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 8px;
+  border-radius: 24rpx;
+}

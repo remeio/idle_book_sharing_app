@@ -1,7 +1,7 @@
 // components/bookcase/bookcase.js
 import Dialog from '@vant/weapp/dist/dialog/dialog';
 import Toast from '@vant/weapp/dist/toast/toast';
-import {getDateStrFormDate} from '../../utils/util'
+import { getDateStrFormDate } from '../../utils/util'
 var globalData = getApp().globalData;
 Component({
   /**
@@ -18,7 +18,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-      bookcaseList: []
+    bookcaseList: [],
+    countOfIdle: 0
   },
 
   /**
@@ -83,11 +84,16 @@ Component({
             return;
           }
           let bookcaseList = dts.bookcaseDTOList;
+          let countOfIdle = 0
           bookcaseList.forEach(r => {
             r.gmtCreateStr = getDateStrFormDate(new Date(r.gmtCreate))
+            if (r.bookDTO.bookStatus == '1') {
+              countOfIdle = countOfIdle + 1
+            }
           })
           me.setData({
-            bookcaseList: bookcaseList
+            bookcaseList: bookcaseList,
+            countOfIdle: countOfIdle
           })
         }
       })

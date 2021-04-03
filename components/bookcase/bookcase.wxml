@@ -1,5 +1,6 @@
 <van-row>
   <van-col span="24">
+    <van-notice-bar wx:if="{{countOfIdle > 0}}" scrollable="{{false}}" color="#EC6B6C" background="#FFF1F1" custom-class="myNotice" left-icon="clock-o" text="书箱中有{{countOfIdle}}件书籍可借阅，快去看看吧~" mode="closeable"/>
     <van-empty description="书箱里空空如也~" wx:if="{{ bookcaseList.length == 0 }}" />
     <van-card custom-class="myCard" wx:for="{{ bookcaseList }}" wx:key="id" price="{{ item.bookDTO.bookDeposit }}.00"
       currency="押金:" desc="{{ item.gmtCreateStr }}" title="{{ item.bookDTO.bookName }}"
