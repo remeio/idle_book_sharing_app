@@ -101,7 +101,7 @@
     </van-col>
   </van-row>
   <van-toast id="van-toast" />
-  <van-popup show="{{ bookcaseShow }}" bind:close="onCloseBookcase" round position="bottom" closeable
+  <van-popup show="{{ bookcaseShow }}" bind:close="onCloseBookcase" round position="bottom"
     custom-style="height: 40%">
     <scroll-view scroll-y="true" style="height: 100%">
       <bookcase isDetail="{{ true }}" id="bookcase"></bookcase>
