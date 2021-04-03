@@ -19,7 +19,7 @@
                 <van-tag type="danger" round wx:if="{{ item.tag && item.tag != ''}}">{{ item.tag }}</van-tag>
                 <van-tag type="danger" color="#ff8260" round style="margin-left: 4px">T+{{ item.bookMaxPeriod }}</van-tag>
                 <van-tag type="warning" color="#ff4057" round plain wx:if="{{ item.bookDeposit != 0}}"
-                  style="margin-left: 4px">押:{{ item.bookDeposit }}
+                  style="margin-left: 4px">押:{{ item.bookDeposit }}.00
                 </van-tag>
                 <van-tag type="primary" round plain wx:if="{{ item.bookDeposit == 0 }}" style="margin-left: 4px">免押金
                 </van-tag>
