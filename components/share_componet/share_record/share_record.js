@@ -15,7 +15,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    shareRecordList: []
+    shareRecordList: [],
+    countOfBorrow: 0
   },
 
   /**
@@ -50,11 +51,16 @@ Component({
             return;
           }
           let shareRecordList = dts.shareRecordDTOList;
+          let countOfBorrow = 0;
           shareRecordList.forEach(r => {
             r.gmtCreateStr = getDateStrFormDate(new Date(r.gmtCreate))
+            if (r.recordStatus == '1' || r.recordStatus == '2') {
+              countOfBorrow = countOfBorrow + 1
+            }
           })
           me.setData({
-            shareRecordList: shareRecordList
+            shareRecordList: shareRecordList,
+            countOfBorrow: countOfBorrow
           })
         }
       })
