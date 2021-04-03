@@ -19,7 +19,38 @@ Page({
     ],
     activeIndex: 0,
     countDownTime: 0,
-    countDownTimeData: {}
+    countDownTimeData: {},
+    star: 5
+  },
+  onStarChange(e) {
+    this.setData({
+      star: e.detail
+    })
+    let me = this
+    Dialog.confirm({
+      title: '确认评价',
+      message: '您确认要评价吗？',
+      confirmButtonText: '确认评价'
+    }).then(() => {
+      wx.request({
+        url: globalData.serverUrl + '/shareRecord/score',
+        data: { shareRecordId: me.data.shareRecordId, score: me.data.star },
+        method: 'POST',
+        header: {
+          "Content-Type": "application/json",
+          'authorization': globalData.token
+        },
+        success: function (res) {
+          let dts = res.data
+          if (!dts.success) {
+            Toast("评价失败，" + dts.errorInfo)
+            return;
+          }
+          Toast("评价成功~")
+          me.getShareLogList()
+        }
+      })
+    })
   },
   onCountDownTimeChange(e) {
     this.setData({

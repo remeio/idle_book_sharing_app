@@ -3,20 +3,27 @@
     <van-col span="24">
       <view class="view-center">
         <van-image fit="heightFix" height="100" src="{{ shareRecord.bookImageUrl }}" />
-        <van-tag mark type="primary" color="#ff8260" wx:if="{{ shareRecord.recordStatus == '1' }}" slot="tag" custom-class="custom-tag-of-card">
-        已下单</van-tag>
-      <van-tag mark type="danger" color="#ff4057" wx:if="{{ shareRecord.recordStatus == '2' }}" slot="tag" custom-class="custom-tag-of-card">借阅中
-      </van-tag>
-      <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '3' }}" slot="tag" custom-class="custom-tag-of-card">
-        已归还</van-tag>
-      <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '4' }}" slot="tag" custom-class="custom-tag-of-card">
-        逾期归还</van-tag>
-      <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '5' }}" slot="tag" custom-class="custom-tag-of-card">
-        已取消</van-tag>
-      <van-tag mark type="success" color="#900048" wx:if="{{ shareRecord.recordStatus == '6' }}" slot="tag" custom-class="custom-tag-of-card">
-        书籍丢失</van-tag>
-      <van-tag mark type="success" color="#900048" wx:if="{{ shareRecord.recordStatus == '7' }}" slot="tag" custom-class="custom-tag-of-card">
-        严重超时</van-tag>
+        <van-tag mark type="primary" color="#ff8260" wx:if="{{ shareRecord.recordStatus == '1' }}" slot="tag"
+          custom-class="custom-tag-of-card">
+          已下单</van-tag>
+        <van-tag mark type="danger" color="#ff4057" wx:if="{{ shareRecord.recordStatus == '2' }}" slot="tag"
+          custom-class="custom-tag-of-card">借阅中
+        </van-tag>
+        <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '3' }}" slot="tag"
+          custom-class="custom-tag-of-card">
+          已归还</van-tag>
+        <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '4' }}" slot="tag"
+          custom-class="custom-tag-of-card">
+          逾期归还</van-tag>
+        <van-tag mark type="success" wx:if="{{ shareRecord.recordStatus == '5' }}" slot="tag"
+          custom-class="custom-tag-of-card">
+          已取消</van-tag>
+        <van-tag mark type="success" color="#900048" wx:if="{{ shareRecord.recordStatus == '6' }}" slot="tag"
+          custom-class="custom-tag-of-card">
+          书籍丢失</van-tag>
+        <van-tag mark type="success" color="#900048" wx:if="{{ shareRecord.recordStatus == '7' }}" slot="tag"
+          custom-class="custom-tag-of-card">
+          严重超时</van-tag>
       </view>
     </van-col>
   </van-row>
@@ -36,10 +43,17 @@
           <van-count-down use-slot time="{{ countDownTime }}" bind:change="onCountDownTimeChange">
             <text class="countDownItem" style="background-color: #ff8260"
               wx:if="{{ countDownTimeData.days > 0 }}">{{ countDownTimeData.days }} 天</text>
-            <text class="countDownItem">{{ countDownTimeData.hours <= 9 ? '0' + countDownTimeData.hours : countDownTimeData.hours }}</text>
-            <text class="countDownItem">{{countDownTimeData.minutes <= 9 ? '0' + countDownTimeData.minutes : countDownTimeData.minutes}}</text>
-            <text class="countDownItem">{{ countDownTimeData.seconds <= 9 ? '0' + countDownTimeData.seconds : countDownTimeData.seconds }}</text>
+            <text
+              class="countDownItem">{{ countDownTimeData.hours <= 9 ? '0' + countDownTimeData.hours : countDownTimeData.hours }}</text>
+            <text
+              class="countDownItem">{{countDownTimeData.minutes <= 9 ? '0' + countDownTimeData.minutes : countDownTimeData.minutes}}</text>
+            <text
+              class="countDownItem">{{ countDownTimeData.seconds <= 9 ? '0' + countDownTimeData.seconds : countDownTimeData.seconds }}</text>
           </van-count-down>
+        </van-cell>
+        <van-cell title="书籍评价：" wx:if="{{ shareRecord.score > 0 }}">
+          <van-rate value="{{ shareRecord.score }}" size="{{ 16 }}" allow-half color="#ee0a24" void-color="#eee"
+            void-icon="star" />
         </van-cell>
       </van-cell-group>
     </van-col>
@@ -80,10 +94,20 @@
       </view>
     </van-col>
   </van-row>
-  <van-row style="margin: 12px" wx:if="{{ shareRecord.recordStatus ==  3 || shareRecord.recordStatus ==  4 || shareRecord.recordStatus ==  5 || shareRecord.recordStatus ==  6 || shareRecord.recordStatus ==  7}}">
+  <van-row style="margin: 12px" wx:if="{{ isBorrow == true && (shareRecord.recordStatus ==  3 || shareRecord.recordStatus == 4) && !(shareRecord.score > 0)}}">
+    <van-col span="22" offset="1">
+      <view class="view-center">
+        <text style="color: #666; font-size: 14px">尚未评价：</text>
+        <van-rate value="{{ star }}" size="{{ 16 }}" allow-half color="#ee0a24" void-color="#eee" void-icon="star"
+          bind:change="onStarChange" />
+      </view>
+    </van-col>
+  </van-row>
+  <van-row style="margin: 12px"
+    wx:if="{{ shareRecord.recordStatus ==  3 || shareRecord.recordStatus ==  4 || shareRecord.recordStatus ==  5 || shareRecord.recordStatus ==  6 || shareRecord.recordStatus ==  7}}">
     <van-col span="8" offset="8">
-        <van-divider contentPosition="center" dashed>交易已完成~</van-divider>
-      </van-col>
+      <van-divider contentPosition="center" dashed>交易已完成~</van-divider>
+    </van-col>
   </van-row>
   <van-toast id="van-toast" />
   <van-dialog id="van-dialog" />
