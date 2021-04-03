@@ -14,8 +14,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    bookList: []
-
+    bookList: [],
+    countOfError: 0
   },
 
   /**
@@ -125,11 +125,16 @@ Component({
             return;
           }
           let bookList = dts.bookDTOList;
+          let countOfError = 0
           bookList.forEach(r => {
             r.gmtCreateStr = getDateStrFormDate(new Date(r.gmtCreate))
+            if (r.bookStatus == '3') {
+              countOfError = countOfError + 1
+            }
           })
           me.setData({
-            bookList: bookList
+            bookList: bookList,
+            countOfError: countOfError
           })
         }
       })
