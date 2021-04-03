@@ -19,6 +19,7 @@ Page({
     userFullName: "",
     schoolName: "",
     bookStatus: 0,
+    score: 0,
     // 状态
     borrowLoading: false,
     addLoading: false,
@@ -33,6 +34,27 @@ Page({
   showPopupBookcase() {
     this.setData({
       bookcaseShow: true
+    })
+  },
+  getBookScore() {
+    let me = this
+    wx.request({
+      url: globalData.serverUrl + '/shareRecord/getScoreOfBook',
+      data: { bookId: parseInt(me.data.bookId) },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/json",
+        'authorization': globalData.token
+      },
+      success: function (res) {
+        let dts = res.data
+        if (!dts.success) {
+          return;
+        }
+        me.setData({
+          score: dts.score
+        })
+      }
     })
   },
   getBookInfo() {
@@ -127,6 +149,7 @@ Page({
       bookId: options.bookId
     })
     this.getBookInfo()
+    this.getBookScore()
   },
 
   /**

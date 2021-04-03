@@ -10,20 +10,13 @@
         <van-col span="24">
           <view class="title">
             <van-row>
-              <van-col span="20">
+              <van-col span="16">
                 <text style="color: #ff4057; font-size: 18px">￥{{ bookDeposit }}.00</text>
               </van-col>
-              <van-col span="4">
-                <van-tag round color="#ff8260" wx:if="{{ bookStatus == 1 }}">空闲
-                </van-tag>
-                <van-tag round type="success" wx:if="{{ bookStatus == 2 }}">受理中
-                </van-tag>
-                <van-tag round color="#900048" wx:if="{{ bookStatus == 3 }}">异常
-                </van-tag>
-                <van-tag round color="#900048" wx:if="{{ bookStatus == 4 }}">已下架
-                </van-tag>
-                <van-tag round color="#900048" wx:if="{{ bookStatus == 5 }}">已删除
-                </van-tag>
+              <van-col span="8">
+                <text wx:if="{{ !(score > 0) }}" style="font-size: 12px; color: #666">暂无评价</text>
+                <van-rate wx:if="{{ score > 0 }}" value="{{ score }}" size="{{ 16 }}" allow-half color="#ee0a24"
+                  void-color="#eee" void-icon="star" readonly />
               </van-col>
             </van-row>
             <van-row custom-class="title-book-name">
@@ -40,6 +33,18 @@
             <van-row>
               <van-col span="24">
                 <van-cell-group custom-class="myCellGroup" border="{{false}}">
+                  <van-cell title="书籍状态" title-class="myTitle" value-class="myValue" border="{{false}}">
+                    <van-tag round color="#ff8260" wx:if="{{ bookStatus == 1 }}">空闲
+                    </van-tag>
+                    <van-tag round type="success" wx:if="{{ bookStatus == 2 }}">受理中
+                    </van-tag>
+                    <van-tag round color="#900048" wx:if="{{ bookStatus == 3 }}">异常
+                    </van-tag>
+                    <van-tag round color="#900048" wx:if="{{ bookStatus == 4 }}">已下架
+                    </van-tag>
+                    <van-tag round color="#900048" wx:if="{{ bookStatus == 5 }}">已删除
+                    </van-tag>
+                  </van-cell>
                   <van-cell title="最大共享天数" title-class="myTitle" value-class="myValue" border="{{false}}">
                     <van-tag type="danger" color="#ff8260" round>T+{{ bookMaxPeriod }}</van-tag>
                   </van-cell>
@@ -89,7 +94,8 @@
         <van-goods-action-icon icon="/resources/images/tabbar/bookcase.png" text="书箱" bind:click="showPopupBookcase" />
         <van-goods-action-button text="加入书箱" type="warning" bind:click="addToBookcase" wx:if="{{ !addLoading }}" />
         <van-goods-action-button type="warning" loading wx:if="{{ addLoading }}" />
-        <van-goods-action-button text="立即借阅" bind:click="borrowBook" wx:if="{{ !borrowLoading && bookStatus == 1 && isMe == false}}" />
+        <van-goods-action-button text="立即借阅" bind:click="borrowBook"
+          wx:if="{{ !borrowLoading && bookStatus == 1 && isMe == false}}" />
         <van-goods-action-button loading wx:if="{{ borrowLoading && bookStatus == 1 && isMe == false}}" />
       </van-goods-action>
     </van-col>
