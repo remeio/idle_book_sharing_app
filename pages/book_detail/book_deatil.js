@@ -22,7 +22,8 @@ Page({
     // 状态
     borrowLoading: false,
     addLoading: false,
-    bookcaseShow: false
+    bookcaseShow: false,
+    isMe: false
   },
   onCloseBookcase() {
     this.setData({
@@ -56,7 +57,8 @@ Page({
           bookDeposit: bookInfo.bookDeposit,
           userFullName: bookInfo.userFullName,
           schoolName: bookInfo.schoolName,
-          bookStatus: bookInfo.bookStatus
+          bookStatus: bookInfo.bookStatus,
+          isMe: bookInfo.userId == globalData.userId
         })
       }
     })

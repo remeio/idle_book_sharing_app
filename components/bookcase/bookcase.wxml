@@ -4,19 +4,19 @@
     <van-card custom-class="myCard" wx:for="{{ bookcaseList }}" wx:key="id" price="{{ item.bookDTO.bookDeposit }}.00"
       currency="押金:" desc="{{ item.gmtCreateStr }}" title="{{ item.bookDTO.bookName }}"
       thumb="{{ item.bookDTO.bookImageUrl }}">
-      <van-tag mark type="primary" wx:if="{{ item.bookDTO.bookStatus == '1' }}" slot="tag"
+      <van-tag mark type="primary" color="#ff8260" wx:if="{{ item.bookDTO.bookStatus == '1' }}" slot="tag"
         custom-class="custom-tag-of-card">空闲
       </van-tag>
-      <van-tag mark type="success" wx:if="{{ item.bookDTO.bookStatus == '2' }}" slot="tag"
+      <van-tag mark type="success" color="#ff4057" wx:if="{{ item.bookDTO.bookStatus == '2' }}" slot="tag"
         custom-class="custom-tag-of-card">受理中
       </van-tag>
-      <van-tag mark type="danger" wx:if="{{ item.bookDTO.bookStatus == '3' }}" slot="tag"
+      <van-tag mark type="danger" color="#900048" wx:if="{{ item.bookDTO.bookStatus == '3' }}" slot="tag"
         custom-class="custom-tag-of-card">异常
       </van-tag>
-      <van-tag mark type="warning" wx:if="{{ item.bookDTO.bookStatus == '4' }}" slot="tag"
+      <van-tag mark type="warning" color="#900048" wx:if="{{ item.bookDTO.bookStatus == '4' }}" slot="tag"
         custom-class="custom-tag-of-card">已下架
       </van-tag>
-      <van-tag mark type="warning" wx:if="{{ item.bookDTO.bookStatus == '5' }}" slot="tag"
+      <van-tag mark type="warning" color="#900048" wx:if="{{ item.bookDTO.bookStatus == '5' }}" slot="tag"
         custom-class="custom-tag-of-card">已删除
       </van-tag>
       <view slot="tags">
