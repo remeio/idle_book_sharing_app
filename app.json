@@ -15,6 +15,7 @@
     "pages/search/search",
     "pages/book_catalog/book_catalog",
     "pages/rank_borrow/rank_borrow",
+    "pages/rank_share/rank_share",
     "pages/feedback/feedback"
   ],
   "window": {
