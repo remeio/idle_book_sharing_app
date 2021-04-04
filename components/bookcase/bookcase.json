@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "book-grid": "/components/book_grid/book_grid"
+  }
 }

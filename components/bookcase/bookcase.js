@@ -19,7 +19,8 @@ Component({
    */
   data: {
     bookcaseList: [],
-    countOfIdle: 0
+    countOfIdle: 0,
+    bookListRecommend: []
   },
 
   /**
@@ -54,6 +55,31 @@ Component({
             me.getBookcaseList()
           }
         })
+      })
+    },
+    getBookListRecommend() {
+      let me = this
+      wx.request({
+        url: globalData.serverUrl + '/book/recommendBookList',
+        data: {},
+        header: {
+          "Content-Type": "application/json",
+          'authorization': globalData.token
+        },
+        method: 'POST',
+        success: function (res) {
+          let dts = res.data
+          if (!dts.success) {
+            return;
+          }
+          let bookList = dts.bookDTOList
+          bookList.forEach(r => {
+            r.tag = "推荐"
+          })
+          me.setData({
+            bookListRecommend: bookList
+          })
+        }
       })
     },
     toBookDetail(e) {
@@ -103,6 +129,7 @@ Component({
   lifetimes: {
     attached() {
       this.getBookcaseList()
+      this.getBookListRecommend()
     }
   }
 })

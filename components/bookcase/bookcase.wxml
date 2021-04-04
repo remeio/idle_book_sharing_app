@@ -33,6 +33,12 @@
         </van-button>
       </view>
     </van-card>
+    <van-row>
+      <van-col span="16" offset="4">
+        <van-divider contentPosition="center" dashed wx:if="{{ bookListRecommend.length > 0 }}">为 / 你 / 推 / 荐</van-divider>
+      </van-col>
+    </van-row>
+    <book-grid bookList="{{ bookListRecommend }}"></book-grid>
   </van-col>
   <van-dialog id="van-dialog" />
   <van-toast id="van-toast" />
