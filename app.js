@@ -14,7 +14,7 @@ App({
     })
   },
   globalData: {
-    serverUrl: 'http://115.29.198.114:8081',
+    serverUrl: 'http://www.remeio.com:8081',
     token: null
   }
 })
